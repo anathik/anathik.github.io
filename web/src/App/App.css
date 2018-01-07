@@ -1,8 +1,29 @@
-.app {
+.App {
   display: flex;
+  flex-direction: column;
   width: 100vw;
   left: 0;
   top: 0;
   right: 0;
   overflow: hidden;
+  font-family: 'Quicksand', sans-serif;
+  background: rgb(24, 24, 24);
+  box-sizing: border-box;
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
 }

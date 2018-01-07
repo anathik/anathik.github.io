@@ -1,0 +1,29 @@
+.nav-button {
+  margin: 0 2vw 0 2vw;
+  background: transparent;
+  text-align: center;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  text-transform: capitalize;
+  letter-spacing: 3px;
+  cursor: pointer;
+  overflow: hidden;
+  color: rgb(255, 255, 255);
+  font-weight: 400;
+}
+
+.hover-indicator {
+  width: 100%;
+  height: 2px;
+  background: rgb(255, 255, 255);
+  transform: translateX(-101%);
+  transition-property: transform;
+  transition-duration: 450ms;
+}
+
+.nav-button:hover .hover-indicator {
+  transform: translateX(-20%);
+  transition-property: transform;
+  transition-duration: 450ms;
+}

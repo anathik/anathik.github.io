@@ -1,0 +1,28 @@
+.navbar {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 70px;
+  background: rgba(255, 255, 255, 0);
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 0 7vw;
+}
+
+.logo {
+  background-position: center;
+  background-size: 130px 130px;
+  width: 70px;
+  height: 70px;
+  margin: 0 0 0 1vw;
+  left: 0;
+}
+
+.button-space {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 70px;
+  background: transparent;
+}

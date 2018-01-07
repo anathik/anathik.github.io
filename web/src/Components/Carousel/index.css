@@ -1,0 +1,129 @@
+.Carousel {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.Carousel-slides {
+  bottom: 0;
+  display: flex;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: translateX(0);
+  transition: transform 1200ms;
+}
+
+.Carousel-slide {
+  flex: 1;
+  background-size: cover;
+  background-position: center center;
+}
+
+.Bubble-space {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  margin-bottom: 20px;
+}
+
+.Bubble {
+  border-radius: 50%;
+  max-width: 9px;
+  min-width: 9px;
+  min-height: 9px;
+  max-height: 9px;
+  background: rgba(260, 260, 260, 0.7);
+  margin: 0 13px 0 13px;
+  opacity: .5;
+  transition: background opacity;
+  transition-duration: 300ms;
+}
+
+.Bubble:hover {
+  border-radius: 50%;
+  max-width: 9px;
+  min-width: 9px;
+  min-height: 9px;
+  max-height: 9px;
+  background: rgba(255, 255, 250, 1);
+  margin: 0 13px 0 13px;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.Bubble-selected {
+  opacity: 1;
+  background: #ffffff;
+}
+
+.Carousel-prev,
+.Carousel-next {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  justify-content: center;
+  opacity: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  background: rgba(260, 260, 260, 0);
+  transition-duration: .7s;
+  transition-property: opacity;
+  cursor: pointer;
+}
+
+.Carousel-prev .material-icons,
+.Carousel-next .material-icons {
+  font-size: 45px;
+  color: #f78f47;
+  margin: 5px;
+  border-radius: 50%;
+  background: rgba(260, 260, 260, 0);
+  transition-property: color, background;
+  transition-duration: 300ms;
+}
+
+.Carousel-prev .material-icons:hover,
+.Carousel-next .material-icons:hover {
+  font-size: 45px;
+  color: #fff;
+  margin: 5px;
+  border-radius: 50%;
+  background: rgba(260, 260, 260, 0.3);
+}
+
+/*}.Carousel-next:hover {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+  justify-content: center;
+  opacity: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  background: rgba(260, 260, 260, 0.4);
+  transition-duration: 1s;
+  transition-property: opacity background;
+  cursor: pointer;
+}*/
+
+.Carousel-prev {
+  left: 0;
+}
+
+.Carousel-next {
+  right: 0;
+}
+
+.Carousel-hovered .Carousel-prev {
+  opacity: 1;
+}
+
+.Carousel-hovered .Carousel-next {
+  opacity: 1;
+}
