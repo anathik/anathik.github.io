@@ -6,12 +6,13 @@
   background-size: cover;
   overflow: hidden;
   box-sizing: border-box;
-  background: rgb(17, 17, 17)
 }
 .aboutSectionTitle {
+  text-transform: uppercase;
   font-weight: 200;
   font-size: 16px;
-  text-align: center;
+  text-align: left;
+  padding: 0 0 0 5vw;
   line-height: 70px;
   letter-spacing: 2px;
   width: 100%;
@@ -19,12 +20,11 @@
 }
 
 .aboutConditionalMedia {
-  flex: 2;
+  flex: 3;
 }
 
 .aboutInfoSelector {
   display: flex;
-  padding: 0 25vw;
   box-sizing: border-box;
   overflow: hidden;
   height: 38px;
@@ -33,5 +33,62 @@
 
 .aboutContent {
   overflow: hidden;
+  flex: 2;
+}
+.aboutSlider,
+.aboutSlider-bio,
+.aboutSlider-interests
+ {
+  display: flex;
+  height: 100%;
+  width: 300vw;
+  min-width: 1800px;
+  transform: translateX(-33.33%);
+  transition-property: transform;
+  transition-duration: 550ms;
+}
+
+.aboutSlider-bio {
+  transform: translateX(0);
+}
+
+.aboutSlider-interests {
+  transform: translateX(-66.66%);
+}
+
+.aboutBioContent,
+.aboutSkillsContent,
+.aboutInterestsContent {
   flex: 1;
+}
+
+.aboutBioSelector,
+.aboutSkillsSelector,
+.aboutJobsSelector {
+  flex: 1;
+  text-align: center;
+  font-weight: 200;
+  font-size: 15px;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+.aboutInfoSelectorBar,
+.aboutInfoSelectorBar-bio,
+.aboutInfoSelectorBar-jobs {
+  position: absolute;
+  width: 33.3%;
+  height: 1px;
+  transform: translateX(100%) translateY(30px);
+  background: #ffffff98;
+  transition-property: transform;
+  transition-duration: 450ms;  
+}
+
+.aboutInfoSelectorBar-bio {
+  transform: translateX(0) translateY(30px);
+}
+
+.aboutInfoSelectorBar-jobs {
+  transform: translateX(200%) translateY(30px);
 }
