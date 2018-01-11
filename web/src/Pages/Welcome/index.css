@@ -14,8 +14,9 @@
   width: 32vw;
   margin-top: 20vh;
   font-size: 40px;
-  font-weight: 900;
+  font-weight: 300;
   letter-spacing: 2px;
+  cursor: default;
 }
 
 .welcome-background {
@@ -34,7 +35,8 @@
   width: 40vw;
   margin-top: 4vh;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 300;
   letter-spacing: 1px;
   line-height: 26px;
+  cursor: default;
 }

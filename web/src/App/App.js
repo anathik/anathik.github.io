@@ -58,8 +58,8 @@ class App extends Component {
       <div className="App">
         <Navbar />
         <Welcome
-          welcomeText="Bringing intuitive and personable web design to the online world."
-          welcomeParagraph="Anathi Keswa (lol) is creative director and marketer with a decade of success engaging, inspiring and activating audiences to drive demand for brands. His multi-disciplinary creative studio based in Hollywood is known for creating consumer centric, imaginative, and conceptual design with a love for storytelling. Anthony has also worked in a diverse array of industry verticals— fashion, motion pictures and television, finance, real estate, foods, hotels and hospitality, video gaming, tech (hardware and software), entertainment news, and business services — winning numerous awards along the way including a 2017 Webby Award."
+          welcomeText="''I create web and mobile experiences that inspire some number of people.''"
+          welcomeParagraph="Anathi Keswa is developer that lives and breathes all things front-end. The origin of his creative passion started with a single html and stylesheet page and quickly grew to macaroni and cheese."
         />
         <About />
         <Portfolio />

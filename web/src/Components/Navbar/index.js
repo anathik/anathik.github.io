@@ -33,9 +33,9 @@ class Navbar extends Component {
           }}
         />
         <div className="button-space">
-          <NavButton text="WELCOME" />
-          <NavButton text="PORTFOLIO" />
-          <NavButton text="CONTACT" />
+          <NavButton text="About" />
+          <NavButton text="Portfolio" />
+          <NavButton text="Contact" />
         </div>
       </div>
     )
