@@ -22,8 +22,18 @@ class About extends Component {
     const { welcomeText } = this.props;
     return ( 
       <div className="about" id="about-div">
-        <div className="about-greeting">
-          {welcomeText}
+        <div className="aboutSectionTitle">
+          About
+        </div>
+        <div className="aboutConditionalMedia" />
+        <div className="aboutInfoSelector" />
+        <div className="aboutContent">
+          <div className="aboutBio">
+          </div>
+          <div className="aboutSkills">
+          </div>
+          <div className="aboutExperiences">
+          </div>
         </div>
       </div>
     )
