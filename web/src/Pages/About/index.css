@@ -45,7 +45,7 @@
   min-width: 1800px;
   transform: translateX(-33.33%);
   transition-property: transform;
-  transition-duration: 550ms;
+  transition-duration: 650ms;
 }
 
 .aboutSlider-bio {
@@ -59,7 +59,12 @@
 .aboutBioContent,
 .aboutSkillsContent,
 .aboutInterestsContent {
+  cursor: default;
   flex: 1;
+  padding: 40px 10vw;
+  text-align: center;
+  font-weight: 200;
+  line-height: 28px;
 }
 
 .aboutBioSelector,
@@ -82,7 +87,7 @@
   transform: translateX(100%) translateY(30px);
   background: #ffffff98;
   transition-property: transform;
-  transition-duration: 450ms;  
+  transition-duration: 550ms;  
 }
 
 .aboutInfoSelectorBar-bio {

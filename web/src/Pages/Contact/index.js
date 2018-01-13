@@ -9,7 +9,7 @@ import './index.css';
 // Media imports
 import anathiPicture from '../../Media/anathi_transparent_png.png'
 
-class Portfolio extends Component {
+class Contact extends Component {
   // In this format a constructor is required. Make sure you understand why...
   constructor() {
     super();
@@ -47,21 +47,20 @@ class Portfolio extends Component {
     const { welcomeText } = this.props;
     
     return ( 
-      <div className="portfolio" id="portfolio-div">
-        <div className="portfolioSectionTitle">
-          Portfolio
+      <div className="contact" id="contact-div">
+        <div className="contactSectionTitle">
+          Contact
         </div>
-        <div className="portfolioDisplay">
-          <div className="projectMenu">
-          </div>
-          <div className="projectMenuDivider">
-          </div>
-          <div className="projectContentWindow">
-            <div className="projectMediaCarousel">
+        <div className="contactForm">
+          <form action="/action_page.php">
+            <div className="contactFormHeader">
+              Fill this form for some saucy collaboration.
             </div>
-          </div>
-          <div className="projectDetailsSection">
-          </div>
+            <input type="text" id="fname" name="firstname" placeholder="Name / Organization" />
+            <input type="text" id="lname" name="lastname" placeholder="Email" />
+            <input type="text" id="lname" name="lastname" placeholder="Leave a message..." />          
+            <input type="submit" value="Submit" />
+          </form>
         </div>
         </div>
     )
@@ -69,4 +68,4 @@ class Portfolio extends Component {
   }
 }
 
-export default Portfolio;
+export default Contact;

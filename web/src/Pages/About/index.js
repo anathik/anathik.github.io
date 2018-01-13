@@ -54,7 +54,7 @@ class About extends Component {
         <div className="aboutConditionalMedia" />
         <div className="aboutInfoSelector">
           <div className="aboutBioSelector" onClick={this.changeInfoOnClick.bind(this, "aboutBioSelector")}>
-            Bio
+            Profile
           </div>
           <div className="aboutSkillsSelector" onClick={this.changeInfoOnClick.bind(this, "aboutSkillsSelector")}>Skills</div>
           <div className="aboutJobsSelector" onClick={this.changeInfoOnClick.bind(this, "aboutJobsSelector")}>Interests</div>
@@ -63,13 +63,13 @@ class About extends Component {
         <div className="aboutContent">
           <div className={this.state.aboutSliderVisibleContent}>
             <div className="aboutBioContent">
-              Oh hi mawrk!
+              My name is Anathi Mpilo Keswa. I’m a frontend software developer and aspiring full-stack software developer. I was born in State College, PA, and grew up in Johannesburg, South Africa where my family roots reside. My passions are community driven technologies, web & mobile development and design, and music. Growing up I became well acquainted with different kinds of technology, from coding to gadgets, and those experiences left an impression on me. In my free time you can find me working on small dev projects, polishing my coding skills, or making soundtracks. Though they began as casual interests in high school, together they’ve contributed to my breadth of experience and my capabilities as a developer.
             </div>
             <div className="aboutSkillsContent">
-              These are my skills. Just blank.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             </div>
             <div className="aboutInterestsContent ">
-              This is my interest- he color black...
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             </div>
           </div>
         </div>

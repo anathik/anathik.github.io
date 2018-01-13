@@ -1,5 +1,6 @@
 // Base imports
 import React, { Component } from 'react';
+import scrollToComponent from 'react-scroll-to-component';
 
 // CSS imports
 import './index.css';
@@ -20,8 +21,12 @@ class Navbar extends Component {
   }
 
   // Behavior
-  someFunction() {
-
+  scrollToAboutOnClick() {
+    scrollToComponent(document.getElementById("about-div"), {
+      offset: 1000,
+      align: 'top',
+      duration: 1500
+  });
   }
 
   render() {
@@ -33,7 +38,7 @@ class Navbar extends Component {
           }}
         />
         <div className="button-space">
-          <NavButton text="About" />
+          <NavButton text="About" onclick={this.scrollToAboutOnClick.bind(this)}/>
           <NavButton text="Portfolio" />
           <NavButton text="Contact" />
         </div>
