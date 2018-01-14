@@ -41,9 +41,6 @@ class Footer extends Component {
               <div className="footerEmail">
               me@anathi.io
               </div>
-              <div className="footerSocialMedia">
-              
-              </div>
             </div>
           </div>
         )

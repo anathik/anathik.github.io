@@ -35,7 +35,8 @@
 }
 
 .projectMenuDivider {
-  height: 90%;
+  align-self: center;
+  height: 95%;
   width: 1px;
   background: rgba(255, 255, 255, .5)
 }
@@ -44,6 +45,16 @@
   display: flex;
   flex: 5;
   flex-direction: column;
+}
+
+.projectMediaCarousel {
+  text-align: center;
+  line-height: 450px;
+  flex: 2;
+}
+
+.projectDiscription {
+  flex: 1;
 }
 
 .projectDetailsSection {

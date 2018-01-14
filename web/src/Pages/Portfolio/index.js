@@ -58,6 +58,9 @@ class Portfolio extends Component {
           </div>
           <div className="projectContentWindow">
             <div className="projectMediaCarousel">
+            No media available.
+            </div>
+            <div className="projectDiscription">
             </div>
           </div>
           <div className="projectDetailsSection">

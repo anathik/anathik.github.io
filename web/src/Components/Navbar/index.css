@@ -6,12 +6,12 @@
   background: rgba(255, 255, 255, 0);
   overflow: hidden;
   box-sizing: border-box;
-  padding: 0 7vw;
+  padding: 8px 7vw;
 }
 
 .logo {
   background-position: center;
-  background-size: 130px 130px;
+  background-size: 110px 110px;
   width: 70px;
   height: 70px;
   margin: 0 0 0 1vw;

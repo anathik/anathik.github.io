@@ -7,7 +7,7 @@ import './index.css';
 // Foreign component imports
 
 // Media imports
-import anathiPicture from '../../Media/anathi_transparent_png.png'
+import contactBackground from '../../Media/gradientNYC.png'
 
 class Contact extends Component {
   // In this format a constructor is required. Make sure you understand why...
@@ -47,7 +47,7 @@ class Contact extends Component {
     const { welcomeText } = this.props;
     
     return ( 
-      <div className="contact" id="contact-div">
+      <div className="contact" id="contact-div" style={{ backgroundImage: `url(${contactBackground})` }}>
         <div className="contactSectionTitle">
           Contact
         </div>
@@ -58,11 +58,12 @@ class Contact extends Component {
             </div>
             <input type="text" id="fname" name="firstname" placeholder="Name / Organization" />
             <input type="text" id="lname" name="lastname" placeholder="Email" />
-            <input type="text" id="lname" name="lastname" placeholder="Leave a message..." />          
+            <input type="text" id="lname" name="lastname" placeholder="Leave a message..." />
             <input type="submit" value="Submit" />
           </form>
         </div>
-        </div>
+        <div className="black-fade" />
+      </div>
     )
 
   }

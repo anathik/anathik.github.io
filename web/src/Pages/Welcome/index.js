@@ -7,7 +7,7 @@ import './index.css';
 // Foreign component imports
 
 // Media imports
-import anathiPicture from '../../Media/anathi_transparent_png.png'
+import welcomeBackground from '../../Media/anathi_selfie.png'
 
 class Welcome extends Component {
   // In this format a constructor is required. Make sure you understand why...
@@ -21,13 +21,14 @@ class Welcome extends Component {
   render() {
     const { welcomeText, welcomeParagraph} = this.props;
     return ( 
-      <div className="welcome" id="welcome-div">
+      <div className="welcome" id="welcome-div" style={{ backgroundImage: `url(${welcomeBackground})` }}>
         <div className="welcome-greeting">
           {welcomeText}
         </div>
         <div className="welcome-paragraph">
           {welcomeParagraph}
         </div>
+        <div className="black-fade" />
       </div>
     )
 
