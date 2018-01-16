@@ -7,14 +7,14 @@ import './index.css';
 // Foreign component imports
 
 // Media imports
-import anathiPicture from '../../Media/anathi_transparent_png.png'
+import questApparel1 from '../../Media/quest-apparel-placeholder.png'
 
 class Portfolio extends Component {
   // In this format a constructor is required. Make sure you understand why...
   constructor() {
     super();
     this.state = {
-      currentInfoSelector:"aboutSkillsSelector",
+      currentProject:"QuestApparel",
       selectionBarClassName:"aboutInfoSelectorBar",
       aboutSliderVisibleContent:"aboutSlider"
     };
@@ -45,6 +45,7 @@ class Portfolio extends Component {
 
   render() {
     const { welcomeText } = this.props;
+    let currentProject = this.props.currentProject;
     
     return ( 
       <div className="portfolio" id="portfolio-div">
@@ -52,18 +53,34 @@ class Portfolio extends Component {
           Portfolio
         </div>
         <div className="portfolioDisplay">
-          <div className="projectMenu">
-          </div>
-          <div className="projectMenuDivider">
-          </div>
           <div className="projectContentWindow">
-            <div className="projectMediaCarousel">
-            No media available.
-            </div>
+            <div className="projectMediaCarousel" style={{ backgroundImage: `url(${questApparel1})` }}/>
             <div className="projectDiscription">
+              <div className="projectCurrentTitle"> Quest Apparel </div>
+              <div className="projectCurrentBody"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </div>
             </div>
           </div>
           <div className="projectDetailsSection">
+            <div className="projectDetail">
+              <div className="projectDetailSection">Catagory</div>
+              <div className="projectDetailSectionContent">Web</div>
+            </div>
+            <div className="projectDetail">
+              <div className="projectDetailSection">Technology</div>
+              <div className="projectDetailSectionContent">React | HTML & CSS</div>
+            </div>
+            <div className="projectDetail">
+              <div className="projectDetailSection">Date</div>
+              <div className="projectDetailSectionContent">Summer 2017</div>
+            </div>
+            <div className="projectDetail">
+              <div className="projectDetailSection">Credits</div>
+              <div className="projectDetailSectionContent">Khanya Keswa - Media</div>
+            </div>
+            <div className="projectDetail">
+              <div className="projectDetailSection">Link</div>
+              <div className="projectDetailSectionContent">livequestapparel.co</div>
+            </div>
           </div>
         </div>
         </div>

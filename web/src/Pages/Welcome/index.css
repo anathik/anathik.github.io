@@ -11,14 +11,21 @@
   box-sizing: border-box;
 }
 
-.welcome-greeting {
+.welcome-greeting,
+.welcome-greeting-second-line {
   margin-left: 8vw;
   width: 40vw;
+  overflow: visible;
   margin-top: 20vh;
   font-size: 40px;
   font-weight: 300;
   letter-spacing: 2px;
   cursor: default;
+}
+
+.welcome-greeting-second-line {
+  margin-top: 0vh;
+  overflow: hidden;
 }
 
 .welcome-background {

@@ -19,6 +19,17 @@
   height: 70px;
 }
 
+.projectCurrentBody {
+  padding-top: 15px;
+  flex: 1;
+  font-weight: 100;
+  letter-spacing: 1px;
+  line-height: 20px;
+  width: 100%;
+  font-size: 14px;
+  text-align: left;
+}
+
 .portfolioDisplay {
   display: flex;
   box-sizing: border-box;
@@ -48,16 +59,46 @@
 }
 
 .projectMediaCarousel {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   text-align: center;
-  line-height: 450px;
   flex: 2;
 }
 
 .projectDiscription {
+  display: flex;
+  flex-direction: column;
   flex: 1;
 }
 
 .projectDetailsSection {
   display: flex;
+  flex-direction: column; 
   flex: 2;
+  margin-left: 10px;
+}
+
+.projectDetail {
+  display: flex;
+  flex-direction: column;
+  font-weight: 100;
+  letter-spacing: .5px;
+  text-align: left;
+  padding: 0 0 40px;
+  cursor: default;
+}
+
+.projectDetailSectionContent {
+  font-size: 12px;
+  padding: 8px 0 20px 2vw;
+}
+
+.projectCurrentTitle {
+  text-align: center;
+  padding: 15px 0;
+  font-weight: 200;
+  letter-spacing: 1px;
+  font-size: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, .5);
 }

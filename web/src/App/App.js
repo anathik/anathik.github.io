@@ -21,7 +21,8 @@ class App extends Component {
       <div className="App">
         <Navbar />
         <Welcome
-          welcomeText="I build websites and mobile apps for humans. Just ask my mom."
+          welcomeText="My name is Anathi."
+          welcomeTextSecondLine="I build websites and mobile apps for humans."
           welcomeParagraph="Anathi Keswa is developer that lives and breathes all things front-end. The origin of his creative passion started with a single html and stylesheet page and quickly grew to macaroni and cheese."
         />
         <About />

@@ -7,7 +7,7 @@ import './index.css';
 // Foreign component imports
 
 // Media imports
-import anathiPicture from '../../Media/anathi_transparent_png.png'
+import aboutDefualtBackgrnd from '../../Media/farmbackground.png'
 
 class About extends Component {
   // In this format a constructor is required. Make sure you understand why...
@@ -51,25 +51,27 @@ class About extends Component {
         <div className="aboutSectionTitle">
           About
         </div>
-        <div className="aboutConditionalMedia" />
+        <div className="aboutConditionalMedia" style={{ backgroundImage: `url(${aboutDefualtBackgrnd})` }}>
+          <div className="black-fade" />
+        </div>
         <div className="aboutInfoSelector">
           <div className="aboutBioSelector" onClick={this.changeInfoOnClick.bind(this, "aboutBioSelector")}>
-            Profile
+            Skills
           </div>
-          <div className="aboutSkillsSelector" onClick={this.changeInfoOnClick.bind(this, "aboutSkillsSelector")}>Skills</div>
+          <div className="aboutSkillsSelector" onClick={this.changeInfoOnClick.bind(this, "aboutSkillsSelector")}>Profile</div>
           <div className="aboutJobsSelector" onClick={this.changeInfoOnClick.bind(this, "aboutJobsSelector")}>Interests</div>
           <div className={this.state.selectionBarClassName} />
         </div>
         <div className="aboutContent">
           <div className={this.state.aboutSliderVisibleContent}>
             <div className="aboutBioContent">
-              My name is Anathi Mpilo Keswa. I’m a frontend software developer and aspiring full-stack software developer. I was born in State College, PA, and grew up in Johannesburg, South Africa where my family roots reside. My passions are community driven technologies, web & mobile development and design, and music. Growing up I became well acquainted with different kinds of technology, from coding to gadgets, and those experiences left an impression on me. In my free time you can find me working on small dev projects, polishing my coding skills, or making soundtracks. Though they began as casual interests in high school, together they’ve contributed to my breadth of experience and my capabilities as a developer.
+              Expert understanding of HTML & CSS. Profficiency in JavaScript and some of it's most powerful libraries (i.e. React, Redux, Webpack).
             </div>
             <div className="aboutSkillsContent">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              My name is Anathi Mpilo Keswa. I’m a frontend software developer and aspiring full-stack software developer. I was born in State College, PA, and grew up in Johannesburg, South Africa where my family roots reside. My passions are community driven technologies, web & mobile development and design, and music. Growing up I became well acquainted with different kinds of technology, from coding to gadgets, and those experiences left an impression on me. In my free time you can find me working on small dev projects, polishing my coding skills, or making soundtracks. Though they began as casual interests in high school, together they’ve contributed to my breadth of experience and my capabilities as a developer.
             </div>
             <div className="aboutInterestsContent ">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              My gravitation to the musical arts is no secret to those who know me. When I'm not hacking you might find me learning guitar, working on my vocals, and/or producing tracks on my digital audio workspace. I grew up with an amazing and doting grandfather who, through introducing me to the piano, inspired my love for music. Besides music, my upbringing enstilled in me a sense of responsibilty to give back to my community- the reason for many hours spent with wonderful people at the Trenton Area Soup Kitchen.
             </div>
           </div>
         </div>

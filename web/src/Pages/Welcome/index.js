@@ -19,11 +19,14 @@ class Welcome extends Component {
   }
 
   render() {
-    const { welcomeText, welcomeParagraph} = this.props;
-    return ( 
+    const { welcomeText, welcomeTextSecondLine, welcomeParagraph} = this.props;
+    return (
       <div className="welcome" id="welcome-div" style={{ backgroundImage: `url(${welcomeBackground})` }}>
         <div className="welcome-greeting">
           {welcomeText}
+        </div>
+        <div className="welcome-greeting-second-line">
+          {welcomeTextSecondLine}
         </div>
         <div className="welcome-paragraph">
           {welcomeParagraph}
