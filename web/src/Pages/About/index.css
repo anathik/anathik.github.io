@@ -4,10 +4,13 @@
   width: 100%;
   height: 100vh;
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   overflow: hidden;
   box-sizing: border-box;
 }
 .aboutSectionTitle {
+  background: linear-gradient(#07070a, transparent);
   text-transform: uppercase;
   font-weight: 200;
   font-size: 16px;
@@ -21,9 +24,6 @@
 
 .aboutConditionalMedia {
   flex: 3;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   overflow: hidden;
   box-sizing: border-box;
   margin-bottom: 15px;
@@ -33,6 +33,7 @@
   display: flex;
   box-sizing: border-box;
   overflow: hidden;
+  margin: 20vh 0 2vh;
   height: 38px;
   width: 100%;
 }

@@ -47,12 +47,9 @@ class About extends Component {
     const { welcomeText } = this.props;
     
     return ( 
-      <div className="about" id="about-div">
+      <div className="about" id="about-div" style={{ backgroundImage: `url(${aboutDefualtBackgrnd})` }}>
         <div className="aboutSectionTitle">
           About
-        </div>
-        <div className="aboutConditionalMedia" style={{ backgroundImage: `url(${aboutDefualtBackgrnd})` }}>
-          <div className="black-fade" />
         </div>
         <div className="aboutInfoSelector">
           <div className="aboutBioSelector" onClick={this.changeInfoOnClick.bind(this, "aboutBioSelector")}>
