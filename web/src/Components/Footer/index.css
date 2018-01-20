@@ -44,3 +44,25 @@
 {
   color: rgb(255, 255, 255);
 }
+
+.footerSocialMedia span {
+  font-weight: 500;
+  display: inline-block;
+}
+
+#babyBlueSpanDot {
+ color: rgb(0, 190, 248);
+ font-size: 14px;
+}
+#darkBlueSpanDot {
+  color: rgb(20, 19, 97);
+  font-size: 14px;
+}
+#greyPurpSpanDot {
+  color: rgb(101, 31, 141);
+  font-size: 14px;
+}
+#feintOrangeSpanDot {
+  color: rgba(255, 153, 0, 0.7);
+  font-size: 14px;
+}
