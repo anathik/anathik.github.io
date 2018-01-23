@@ -8,6 +8,11 @@ import './index.css';
 
 // Media imports
 import aboutDefualtBackgrnd from '../../Media/farmbackground.png'
+import ResponsiveIcon from '../../Components/ResponsiveIcon'
+
+import html5icon from '../../Media/html5.png'
+import css3icon from '../../Media/css-3.png'
+import reactIcon from '../../Media/nuclear.png'
 
 class About extends Component {
   // In this format a constructor is required. Make sure you understand why...
@@ -47,7 +52,7 @@ class About extends Component {
     const { welcomeText } = this.props;
     
     return ( 
-      <div className="about" id="about-div" style={{ backgroundImage: `url(${aboutDefualtBackgrnd})` }}>
+      <div className="about" id="about-div" >
         <div className="aboutSectionTitle">
           About
         </div>
@@ -62,7 +67,11 @@ class About extends Component {
         <div className="aboutContent">
           <div className={this.state.aboutSliderVisibleContent}>
             <div className="aboutBioContent">
-              Expert understanding of HTML & CSS. Profficiency in JavaScript and some of it's most powerful libraries (i.e. React, Redux, Webpack).
+              <div className="skillSectionRow" >
+                <ResponsiveIcon skillIcon={ html5icon } text="HTML" textColor="orange"/>
+                <ResponsiveIcon skillIcon={ css3icon } text="CSS" textColor="orange"/>
+                <ResponsiveIcon skillIcon={ reactIcon } text="REACT" textColor="#0099ff"/>
+              </div>
             </div>
             <div className="aboutSkillsContent">
               My name is Anathi Mpilo Keswa. I’m a frontend software developer and aspiring full-stack software developer. I was born in State College, PA, and grew up in Johannesburg, South Africa where my family roots reside. My passions are community driven technologies, web & mobile development and design, and music. Growing up I became well acquainted with different kinds of technology, from coding to gadgets, and those experiences left an impression on me. In my free time you can find me working on small dev projects, polishing my coding skills, or making soundtracks. Though they began as casual interests in high school, together they’ve contributed to my breadth of experience and my capabilities as a developer.

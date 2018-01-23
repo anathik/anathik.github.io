@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 import './index.css';
 
 // Foreign component imports
+import Modal from '../../Components/Modal'
 
 // Media imports
 import questApparelBackgroundURL from '../../Media/quest-general-background.jpg'
@@ -24,7 +25,29 @@ class Portfolio extends Component {
       richBackgroundClassName: "richBackground",
       proximityBackgroundClassName: "proximityBackground",
       uproarBackgroundClassName: "uproarBackground",
+      isModalVisible: false
     };
+  }
+
+  onPortfolioProjectClick() {
+    this.showModal()
+  }
+
+  onModalDismissal() {
+    this.setState({ isModalVisible: false })
+  }
+
+  showModal() {
+    this.setState({ isModalVisible: true })
+  }
+
+  renderModal() {
+
+    return (
+      <Modal onDismissalRequested={this.onModalDismissal.bind(this)}>
+        Hi. This is a modal.
+      </Modal>
+    )
   }
 
   changeBackgroundOnHover(project) {
@@ -54,6 +77,7 @@ class Portfolio extends Component {
 
   render() {
     const { welcomeText } = this.props;
+    const { isModalVisible } = this.state
     let currentProject = this.props.currentProject;
     
     return ( 
@@ -68,7 +92,7 @@ class Portfolio extends Component {
         <div className={this.state.uproarBackgroundClassName} style={{ backgroundImage: `url(${uproarBackgroundURL})` }}/>
         <div className={this.state.proximityBackgroundClassName} style={{ backgroundImage: `url(${proximityBackgroundURL})` }}/>
         <div className="portfolioSectionTitle">
-          Portfolio
+          Projects
         </div>
         <div className="portfolioDisplay">
           <div className="projectMenu">
@@ -76,7 +100,8 @@ class Portfolio extends Component {
               className="projectMenuItem" 
               id="quest-apparel" 
               onMouseOver={this.changeBackgroundOnHover.bind(this, "QuestApparel")} 
-              onMouseLeave={this.resetBackgroundOnMouseLeave.bind(this)}>Quest Apparel</span>
+              onMouseLeave={this.resetBackgroundOnMouseLeave.bind(this)}
+              onClick={this.onPortfolioProjectClick.bind(this)}>Quest Apparel</span>
             <div className="projectMenuItemDivider">
               <div className="projectMenuItemDivider-white-space" />
             </div>
@@ -110,7 +135,7 @@ class Portfolio extends Component {
               onMouseOver={this.changeBackgroundOnHover.bind(this, "Uproar")}
               onMouseLeave={this.resetBackgroundOnMouseLeave.bind(this)}>Uproar</span>
           </div>
-              
+          {isModalVisible ? this.renderModal() : null}
         </div>
       </div>
     )

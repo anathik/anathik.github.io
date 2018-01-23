@@ -42,13 +42,13 @@ class Footer extends Component {
               me@anathi.io
               </div>
               <div className="footerSocialMedia">
-                <span>TW</span>
+                <a id="twitter" href="https://twitter.com/anathi_keswa" target="_blank">TW</a>
                 <span id="babyBlueSpanDot">.</span>
-                <span>FB</span>
+                <a id="facebook" href="https://www.facebook.com/tikeswa" target="_blank">FB</a>
                 <span id="darkBlueSpanDot">.</span>
-                <span>GH</span>
+                <a id="github" href="https://github.com/anathik" target="_blank">GH</a>
                 <span id="greyPurpSpanDot">.</span>
-                <span>IG</span>
+                <a id="instagram" href="https://www.instagram.com/anathimpilo/" target="_blank">IG</a>
                 <span id="feintOrangeSpanDot">.</span>
               </div>
             </div>

@@ -1,5 +1,7 @@
 // Base imports
 import React, { Component } from 'react';
+import scrollToComponent from 'react-scroll-to-component';
+
 
 // CSS imports
 import './index.css';
@@ -18,6 +20,14 @@ class Welcome extends Component {
     };
   }
 
+  scrollToAboutOnClick(elementId) {
+    scrollToComponent(document.getElementById(elementId), {
+      offset: 0,
+      align: 'top',
+      duration: 750
+  });
+  }
+
   render() {
     const { welcomeText, welcomeTextSecondLine, welcomeParagraph} = this.props;
     return (
@@ -30,6 +40,9 @@ class Welcome extends Component {
         </div>
         <div className="welcome-paragraph">
           {welcomeParagraph}
+        </div>
+        <div className="scroll-to-about" onClick={this.scrollToAboutOnClick.bind(this, "about-div")}>
+          <div id="">More about me . . .</div>
         </div>
         <div className="black-fade" />
       </div>

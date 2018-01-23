@@ -57,3 +57,21 @@
   width: 100%;
   background: linear-gradient(transparent, #07070a);
 }
+
+.scroll-to-about,
+.scroll-to-about:hover {
+  margin: 10vh 25px 25px 8vw;
+  color: rgba(255, 255, 255, 0.5);
+  max-width: 180px;
+  font-weight: 100;
+  font-size: 15px;
+  transform: none;
+  cursor: pointer;
+  transition-delay: transform color;
+  transition-duration: 300ms;
+}
+
+.scroll-to-about:hover {
+  color: rgba(255, 255, 255, 1);
+  transform: translateY(5px);  
+}

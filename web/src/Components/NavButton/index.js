@@ -1,5 +1,6 @@
 // Base imports
 import React, { Component } from 'react';
+import scrollToComponent from 'react-scroll-to-component';
 
 // CSS imports
 import './index.css';
@@ -25,11 +26,19 @@ class NavButton extends Component {
     }
   }
 
+  scrollToAboutOnClick(elementId) {
+    scrollToComponent(document.getElementById(elementId), {
+      offset: 0,
+      align: 'top',
+      duration: 750
+  });
+  }
+
   render() {
-    const { text, color, child } = this.props
+    const { text, scrollTarget } = this.props
 
     return (
-      <div className="nav-button">
+      <div className="nav-button" onClick={this.scrollToAboutOnClick.bind(this, scrollTarget)}>
         {text}
         <div className="hover-indicator" />
       </div>

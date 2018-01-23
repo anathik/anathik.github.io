@@ -21,13 +21,6 @@ class Navbar extends Component {
   }
 
   // Behavior
-  scrollToAboutOnClick() {
-    scrollToComponent(document.getElementById("about-div"), {
-      offset: 1000,
-      align: 'top',
-      duration: 1500
-  });
-  }
 
   render() {
     return ( 
@@ -38,9 +31,9 @@ class Navbar extends Component {
           }}
         />
         <div className="button-space">
-          <NavButton text="About" onclick={this.scrollToAboutOnClick.bind(this)}/>
-          <NavButton text="Portfolio" />
-          <NavButton text="Contact" />
+          <NavButton text="Profile" scrollTarget="about-div"/>
+          <NavButton text="Projects" scrollTarget="portfolio-div"/>
+          <NavButton text="Contact" scrollTarget="contact-div"/>
         </div>
       </div>
     )

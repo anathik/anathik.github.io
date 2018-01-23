@@ -1,0 +1,24 @@
+.skill-icon {
+  width: 180px;
+  height: 180px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  margin: 0 100px;
+  transition-property: opacity;
+  transition-duration: 250ms;
+}
+
+.skill-icon:hover {
+  opacity: 1;
+}
+
+.skill-icon-text {
+  font-weight: 500;
+  letter-spacing: 5px;
+  font-size: 2vw;
+  opacity: 2;
+  transform: translateX(40px) translateY(140px);
+  text-shadow: 0.5px 1px 1px rgba(255, 255, 255, 0);
+}
