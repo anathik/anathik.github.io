@@ -52,14 +52,15 @@ class Contact extends Component {
           Contact
         </div>
         <div className="contactForm">
-          <form action="/action_page.php">
+          <form action="https://formspree.io/me@anathi.io" method="POST">
             <div className="contactFormHeader">
               Fill this form for some saucy collaboration.
             </div>
-            <input type="text" id="fname" name="firstname" placeholder="Name / Organization" />
-            <input type="text" id="lname" name="lastname" placeholder="Email" />
-            <input type="text" id="lname" name="lastname" placeholder="Leave a message..." />
-            <input type="submit" value="Submit" />
+            <input type="text" id="fname" name="name" placeholder="Name / Organization" />
+            <input type="email" id="lname" name="_replyto" placeholder="Email" />
+            <input type="text" id="lname" name="_body" placeholder="Leave a message..." />
+            <input type="hidden" name="_next" value="anathi.io" />
+            <input type="submit" value="Send" />
           </form>
         </div>
         <div className="black-fade" />

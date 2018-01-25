@@ -20,7 +20,9 @@
   background: linear-gradient(#07070a, transparent)
 }
 
-input[type=text], select {
+input[type=text], 
+select,
+input[type=email] {
   width: 51%;
   padding: 13px 0;
   margin: 13px 0;
@@ -43,7 +45,8 @@ input[type=text]:nth-of-type(3) {
   
 }
 
-input[type=text]:focus {
+input[type=text]:focus,
+input[type=email]:focus {
   color: #ffffff;
   border-bottom: 1px solid rgb(255, 255, 255);
   transition-property: border-bottom;
