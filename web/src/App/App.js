@@ -16,9 +16,18 @@ class App extends Component {
     super();
   }
 
+  scrollToAboutOnClick(elementId) {
+    scrollToComponent(document.getElementById(elementId), {
+      offset: 0,
+      align: 'top',
+      duration: 750
+  });
+  }
+
   render() {
     return (
       <div className="App">
+        <div className="backToTop" onClick={this.scrollToAboutOnClick.bind(this, "welcome-div")}>Back to Top</div>
         <Navbar />
         <Welcome
           welcomeText="My name is Anathi."
