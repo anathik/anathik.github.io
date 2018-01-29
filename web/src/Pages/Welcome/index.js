@@ -42,7 +42,7 @@ class Welcome extends Component {
           {welcomeParagraph}
         </div>
         <div className="scroll-to-about" onClick={this.scrollToAboutOnClick.bind(this, "about-div")}>
-          <div id="">More about me . . .</div>
+          <div id="">more about me</div>
         </div>
         <div className="black-fade" />
       </div>

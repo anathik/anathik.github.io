@@ -32,7 +32,7 @@ class App extends Component {
         <Welcome
           welcomeText="My name is Anathi."
           welcomeTextSecondLine="I build websites and mobile apps for humans."
-          welcomeParagraph="Anathi Keswa is developer that lives and breathes all things front-end. The origin of his creative passion started with a single html and stylesheet page and quickly grew to macaroni and cheese."
+          welcomeParagraph="Anathi Keswa is developer that lives and breathes all things front-end. Based in New York he's an active member of the developer community. His goal is to inspire creativity through his work and, in return, be inspired to be an even better hacker."
         />
         <About />
         <Portfolio />
