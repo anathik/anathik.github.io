@@ -1,5 +1,6 @@
 // Base imports
 import React, { Component } from 'react';
+import scrollToComponent from 'react-scroll-to-component';
 
 // CSS imports
 import './index.css';
@@ -19,6 +20,7 @@ class Portfolio extends Component {
   constructor() {
     super();
     this.state = {
+      modalProjectDisplay: null,
       currentBackground: null,
       questBackgroundClassName: "questBackground",
       railsightBackgroundClassName: "railsightBackground",
@@ -29,12 +31,26 @@ class Portfolio extends Component {
     };
   }
 
+  returnToPortfolio() {
+    scrollToComponent(document.getElementById("portfolio-div"), {
+      offset: 0,
+      align: 'top',
+      duration: 100
+  });
+  }
+  
+  setModalDisplayOnClick() {
+    // Placeholder for spicy logic!!!
+  }
+
   onPortfolioProjectClick() {
     this.showModal()
   }
 
   onModalDismissal() {
+    this.returnToPortfolio()
     this.setState({ isModalVisible: false })
+    this.returnToPortfolio() 
   }
 
   showModal() {
@@ -45,7 +61,20 @@ class Portfolio extends Component {
 
     return (
       <Modal onDismissalRequested={this.onModalDismissal.bind(this)}>
-        Hi. This is a modal.
+        <div className="projectModalWindow">
+          <div className="projectModal-mediaSection" id="projectModalMedia1"  />
+          <div className="projectModal-detailsSection" id="projectModaldetails1">
+            This is the QuestApparel project. UNDER CONSTRUCTION
+          </div>
+          <div className="projectModal-mediaSection" id="projectModalMedia2"  />
+          <div className="projectModal-detailsSection" id="projectModaldetails2"/>
+          <div className="projectModal-mediaSection" id="projectModalMedia3"  />
+          <div className="projectModal-detailsSection" id="projectModaldetails3"/>
+          <div className="projectModal-mediaSection" id="projectModalMedia4"  />
+          <div className="projectModal-detailsSection" id="projectModaldetails4"/>
+          <div className="projectModal-mediaSection" id="projectModalMedia5"  />
+          <div className="projectModal-detailsSection" id="projectModaldetails5"/> 
+        </div>
       </Modal>
     )
   }

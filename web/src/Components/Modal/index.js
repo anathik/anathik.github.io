@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import './index.css'
 
 const animationDuration = 300 /* milliseconds */
-const domAdjustmentDuration = 10 /* milliseconds */
+const domAdjustmentDuration = 500 /* milliseconds */
 
 export class ModalWrapper extends Component {
   constructor() {
@@ -29,6 +29,27 @@ export class ModalWrapper extends Component {
     // TODO(skeswa): animate the modal going away here.
 
     this.destroyModalRoot()
+    this.fadeOutBackdrop()
+  }
+
+  fadeOutBackdrop() {
+    return new Promise((resolve, reject) => {
+      try {
+        // Wait for the DOM to adjust first.
+        setTimeout(() => {
+          // Then, update the state to have the backdrop faded in.
+          this.setState({ isBackdropVisible: false }, () => {
+            // After that, wait for the animation finish.
+            setTimeout(() => {
+              // At this point, we are done - so, resolve this promise.
+              return resolve()
+            }, 300)
+          })
+        }, 300)
+      } catch (err) {
+        return reject(new Error('Failed to fade in the backdrop', err))
+      }
+    })
   }
 
   fadeInBackdrop() {
