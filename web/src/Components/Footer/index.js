@@ -35,12 +35,6 @@ class Footer extends Component {
               <div className="footerCopyright">
               ©2017 Portfolio of Anathi Keswa
               </div>
-              <div className="footerPhoneNumber">
-              215.280.1971
-              </div>
-              <div className="footerEmail">
-              me@anathi.io
-              </div>
               <div className="footerSocialMedia">
                 <a id="twitter" href="https://twitter.com/anathi_keswa" target="_blank">TW</a>
                 <span id="babyBlueSpanDot">.</span>
@@ -51,6 +45,9 @@ class Footer extends Component {
                 <a id="instagram" href="https://www.instagram.com/anathimpilo/" target="_blank">IG</a>
                 <span id="feintOrangeSpanDot">.</span>
               </div>
+              <div className="footerEmail">
+                  Original website by Anathi Keswa.
+                </div>
             </div>
           </div>
         )

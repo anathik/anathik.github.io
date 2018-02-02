@@ -30,7 +30,7 @@ class App extends Component {
         <div className="backToTop" onClick={this.scrollToAboutOnClick.bind(this, "welcome-div")}>Back to Top</div>
         <Navbar />
         <Welcome
-          welcomeText="Hello. My name is Anathi."
+          welcomeText="My name is Anathi."
           welcomeTextSecondLine="I build websites and mobile apps for humans."
           welcomeParagraph="Anathi Keswa is developer that lives and breathes all things front-end. Based in New York he's an active member of the developer community. His goal is to inspire creativity through his work and, in return, be inspired to be an even better hacker."
         />

@@ -1,12 +1,12 @@
 .navbar {
   display: flex;
   position: absolute;
-  width: 100%;
   height: 70px;
   background: rgba(255, 255, 255, 0);
   overflow: hidden;
   box-sizing: border-box;
-  padding: 8px 7vw;
+  left: 8vw;
+  right: 8vw;
 }
 
 .logo {
@@ -14,7 +14,7 @@
   background-size: 110px 110px;
   width: 70px;
   height: 70px;
-  margin: 0 0 0 1vw;
+  margin: 0;
   left: 0;
 }
 

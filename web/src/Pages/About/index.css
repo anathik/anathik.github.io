@@ -1,116 +1,303 @@
-.about {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100vh;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  overflow: hidden;
-  box-sizing: border-box;
-}
-.aboutSectionTitle {
-  background: linear-gradient(#07070a, transparent);
-  text-transform: uppercase;
-  font-weight: 200;
-  font-size: 16px;
-  text-align: left;
-  padding: 25px 0 0 5vw;
-  line-height: 70px;
-  letter-spacing: 2px;
-  width: 100%;
-  height: 70px;
-}
+/* About div - the whole damn thing */
+  .about {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    box-sizing: border-box;
+    background: linear-gradient(#07070a, transparent, #07070a);
+  }
+  .aboutSectionTitle {
+    text-transform: uppercase;
+    position: absolute;
+    font-weight: 200;
+    font-size: 16px;
+    text-align: left;
+    padding: 25px 0;
+    left: 100px;
+    right: 0;
+    line-height: 70px;
+    letter-spacing: 2px;
+    height: 70px;
+  }
 
-.aboutConditionalMedia {
-  flex: 3;
-  overflow: hidden;
-  box-sizing: border-box;
-  margin-bottom: 15px;
-}
+  .aboutContentSelector {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    left: 100px;
+    font-size: 12px;
+    transform: translateY(100px);
+    right: 100px;
+    z-index: 2;
+  }
 
-.aboutInfoSelector {
-  display: flex;
-  box-sizing: border-box;
-  overflow: hidden;
-  margin: 20vh 0 2vh;
-  height: 38px;
-  width: 100%;
-}
+  .aboutSelector-skills,
+  .aboutSelector-profile,
+  .aboutSelector-interests {
+    font-weight: 100;
+    color: rgba(255,255,255,.6);
+    margin-right: 15px;
+    cursor: pointer;
+    transition-property: color;
+    transition-duration: 300ms;
+  }
+  .aboutSelector-skills-current,
+  .aboutSelector-profile-current,
+  .aboutSelector-interests-current {
+    font-weight: 100;
+    color: rgba(255,255,255,1);
+    margin-right: 15px;
+    cursor: pointer;
+    transition-property: color;
+    transition-duration: 300ms;
+  }
 
-.aboutContent {
-  overflow: hidden;
-  flex: 2;
-}
-.aboutSlider,
-.aboutSlider-bio,
-.aboutSlider-interests
- {
-  display: flex;
-  height: 100%;
-  width: 300vw;
-  min-width: 1800px;
-  transform: translateX(-33.33%);
-  transition-property: transform;
-  transition-duration: 650ms;
-}
+  .aboutSectionContent-1 {
+    display: flex;
+    position: absolute;
+    flex-direction: row;
+    overflow: hidden;
+    height: 100%;
+    left: 70px;
+    right: 70px;
+  }
 
-.aboutSlider-bio {
-  transform: translateX(0);
-}
+  .aboutSkills-profile,
+  .aboutInterests-profile,
+  .aboutProfile-profile,
+  .aboutSkills-skills,
+  .aboutInterests-skills,
+  .aboutProfile-skills,
+  .aboutSkills-interests,
+  .aboutInterests-interests,
+  .aboutProfile-interests {
+    box-sizing: border-box;
+    overflow: hidden;
+    padding-top: 145px;
+    min-height: 100%;
+    min-width: 100%;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(-100%);
+    transition-property: transform;
+    transition-duration: 700ms;
+  }
 
-.aboutSlider-interests {
-  transform: translateX(-66.66%);
-}
+  .aboutSkills-profile,
+  .aboutProfile-profile,
+  .aboutInterests-profile {
+    transform: translateX(-100%);
+  }
 
-.aboutBioContent,
-.aboutSkillsContent,
-.aboutInterestsContent {
-  display: flex;
-  flex-direction: column;
-  cursor: default;
-  flex: 1;
-  padding: 40px 10vw;
-  text-align: center;
-  font-weight: 200;
-  line-height: 28px;
-  overflow-x: hidden;
-  overflow-y: scroll;
-}
+  .aboutSkills-skills,
+  .aboutInterests-skills,
+  .aboutProfile-skills {
+    transform: translateX(0px);
+  }
+  .aboutSkills-interests,
+  .aboutInterests-interests,
+  .aboutProfile-interests {
+    transform: translateX(-200%);
+  }
 
-.skillSectionRow {
-  display: flex;
-  flex-direction: row;
-  flex: 1;
-}
+/* Profile Top - Collapse */
+  .profile-leftSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 150px;
+    box-sizing: border-box;
+    align-items: center;
+  }
+  .profile-pictureCircle {
+    background-position: center;
+    background-size: 160px 160px;
+    overflow: hidden;
+    box-sizing:border-box;
+    width: 150px;
+    height: 150px;
+    border: 1px solid rgba(255,255,255,.1);
+  }
+  .profile-basicInfo {
+    display: flex;
+    justify-content: center;
+    padding: 0 0 0 25px;
+    box-sizing: border-box;
+    justify-content: center;
+    overflow: hidden;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: 100%;
+    cursor: default;
+  }
+  .profile-basicInfo-name,
+  .profile-basicInfo-birthdate,
+  .profile-basicInfo-birthplace,
+  .profile-basicInfo-proffession {
+    height: 45px;
+    line-height: 45px;
+    font-weight: 100;
+    font-size: 24px;
+    letter-spacing: 2px;
+  }
+  #name2ndStyle {
+    font-size: 18px;
+    color: rgba(255,255,255,.6);
+  }
 
-.aboutBioSelector,
-.aboutSkillsSelector,
-.aboutJobsSelector {
-  flex: 1;
-  text-align: center;
-  font-weight: 200;
-  font-size: 15px;
-  letter-spacing: 2px;
-  cursor: pointer;
-}
+  .profile-basicInfo-birthdate,
+  .profile-basicInfo-birthplace,
+  .profile-basicInfo-proffession {
+    color: rgba(255,255,255,.6);
+    height: 30px;
+    line-height: 30px;
+    font-weight: 100;
+    font-size: 14px;
+    letter-spacing: 2px;
+  }
+  
+/* Profile Bottom - Collapse */
+  .profile-rightSection {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    box-sizing: border-box;
+    padding: 10px 0 25px 0;
+    overflow: hidden;
+  }
+  .leftRightDivider {
+    align-self: center;
+    margin-bottom: 10px;
+    height: 1px;
+    width: 60vw;
+    background: rgba(255,255,255,.25);
+  }
+  .profile-articleRegion {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+  }
+  .profile-articleRegion-column1,
+  .profile-articleRegion-column2,
+  .profile-articleRegion-column3 {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    box-sizing: border-box;
+    flex: 1;
+    height: 100%;
+  }
+  #heading1,
+  #heading2,
+  #heading3 {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 16px;
+    letter-spacing: 1px;
+    font-weight: 100;
+    color: rgba(255,255,255,.6);
+    padding-bottom: 10px;
+  }
 
-.aboutInfoSelectorBar,
-.aboutInfoSelectorBar-bio,
-.aboutInfoSelectorBar-jobs {
-  position: absolute;
-  width: 33.3%;
-  height: 1px;
-  transform: translateX(100%) translateY(30px);
-  background: #ffffff98;
-  transition-property: transform;
-  transition-duration: 550ms;  
-}
+  .column-text {
+    text-indent: 10%;
+    font-size: 15px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    font-weight: 100;
+    color: rgba(255,255,255,1);
+    line-height: 28px;
+  }
 
-.aboutInfoSelectorBar-bio {
-  transform: translateX(0) translateY(30px);
-}
+/* Skills stuff */
+  .skillsContentContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+  }
 
-.aboutInfoSelectorBar-jobs {
-  transform: translateX(200%) translateY(30px);
-}
+  .skillsContentLeft,
+  .skillsContentRight {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
+
+  .skillIcons,
+  #HTML5,
+  #CSS3,
+  #Js,
+  #Java,
+  #iOS11,
+  #Swift4 {
+    display: flex;
+    width: 8vw;
+    height: 8vw;
+    line-height: 6vw;
+    text-align: center;
+    box-sizing: border-box;
+    font-size: smaller;
+    font-weight: 100;
+    padding: 1vw;
+    border: 1px solid white;
+    margin: 0 10px;
+    cursor: default;
+    opacity: .5;
+    transform: scale(1);
+    transition-property: color border opacity transform;
+    transition-duration: 200ms;
+  }
+
+  #HTML5:hover,
+  #CSS3:hover,
+  #Js:hover,
+  #Java:hover,
+  #iOS11:hover,
+  #Swift4:hover {
+    transition-property: color border opacity transform;
+    transition-duration: 200ms;
+    opacity: 1;
+    transform: scale(1.1);
+  }
+
+  #HTML5:hover {
+    color: rgba(245, 118, 0, 0.911);
+    border: 1px solid rgba(245, 118, 0, 0.911);
+  }
+  #CSS3:hover {
+    color: rgba(29, 202, 194, 0.911);
+    border: 1px solid rgba(29, 202, 194, 0.911);
+  }
+  #Js:hover {
+    color: rgba(25, 161, 55, 0.911);
+    border: 1px solid rgba(25, 161, 55, 0.911);
+  }
+  #Java:hover {
+    color: rgba(146, 26, 76, 0.911);
+    border: 1px solid rgba(146, 26, 76, 0.911);
+  }
+  #iOS11:hover {
+    color: rgba(111, 24, 182, 0.911);
+    border: 1px solid rgba(111, 24, 182, 0.911);
+  }
+  #Swift4:hover {
+    color: rgba(248, 244, 7, 0.918);
+    border: 1px solid rgba(248, 244, 7, 0.918);
+  }
+
+
+
+
+/* Interests stuff */
