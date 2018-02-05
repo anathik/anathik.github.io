@@ -87,7 +87,7 @@ class About extends Component {
         <div className="aboutContentSelector"> 
           <div className={this.state.skillsSelectorClass} onClick={this.translateContentOnClick.bind(this, "skills")}>SKILLS</div> 
           <div className={this.state.profileSelectorClass} onClick={this.translateContentOnClick.bind(this, "profile")}>PROFILE</div>
-          <div className={this.state.interestsSelectorClass} onClick={this.translateContentOnClick.bind(this, "interests")}>INTERESTS</div>
+          <div className={this.state.interestsSelectorClass} onClick={this.translateContentOnClick.bind(this, "")}>INTERESTS</div>
         </div>
         <div className="aboutSectionContent-1">
           <div className={ this.state.skillsClass }>

@@ -62,10 +62,29 @@ class Portfolio extends Component {
     return (
       <Modal onDismissalRequested={this.onModalDismissal.bind(this)}>
         <div className="projectModalWindow">
-          <div className="projectModal-mediaSection" id="projectModalMedia1"  />
+          <div className="projectModal-mediaSection" id="projectModalMedia1" style={{ backgroundImage: `url(${ questApparelBackgroundURL })` }} />
           <div className="projectModal-detailsSection" id="projectModaldetails1">
-            This is the QuestApparel project. UNDER CONSTRUCTION
+            <div className="projectStatline"> 
+              <div className="projectStatline-tech">
+                <div className="projectStat-catagory">Tools: </div>
+                <div className="projectStat-catagoryContent">React</div>
+              </div>
+              <div className="projectStatline-credits">
+                <div className="projectStat-catagory">Credits: </div>
+                <div className="projectStat-catagoryContent">Khanya Keswa (Brand Design)</div>
+              </div>
+              <div className="projectStatline-date">
+                <div className="projectStat-catagory">Date: </div>
+                <div className="projectStat-catagoryContent">Summer 2017</div>
+              </div>
+              <div className="projectStatline-link">
+                <div className="projectStat-catagory">Link: </div>
+                <a className="projectStat-catagoryContent" href="http://anathi.io/quest-apparel">anathi.io/quest-apparel</a>
+              </div>
+            </div>
+            <div className="projectDescription">QuestApparel is an online clothing store I made. The goal was to creat an e-commerce application with slick, minimalist design that would make shopping easy and pleasant.</div>
           </div>
+          {/*
           <div className="projectModal-mediaSection" id="projectModalMedia2"  />
           <div className="projectModal-detailsSection" id="projectModaldetails2"/>
           <div className="projectModal-mediaSection" id="projectModalMedia3"  />
@@ -73,7 +92,8 @@ class Portfolio extends Component {
           <div className="projectModal-mediaSection" id="projectModalMedia4"  />
           <div className="projectModal-detailsSection" id="projectModaldetails4"/>
           <div className="projectModal-mediaSection" id="projectModalMedia5"  />
-          <div className="projectModal-detailsSection" id="projectModaldetails5"/> 
+          <div className="projectModal-detailsSection" id="projectModaldetails5"/>
+          */} 
         </div>
       </Modal>
     )
