@@ -70,11 +70,10 @@
 .scroll-to-about,
 .scroll-to-about:hover {
   position: absolute;
-  text-align: center;
   left: 100px;
   bottom: 10vh;
   color: rgba(255, 255, 255, 1);
-  width: 150px;
+  width: 140px;
   height: 45px;
   line-height: 45px;
   font-weight: 100;
@@ -91,8 +90,7 @@
 }
 .download-resume {
   position: absolute;
-  text-align: center;
-  left: 260px;
+  left: 240px;
   bottom: 10vh;
   color: rgba(255, 255, 255, 1);
   width: 150px;

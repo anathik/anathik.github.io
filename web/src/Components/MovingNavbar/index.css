@@ -1,0 +1,59 @@
+.moving-navbar {
+  display: flex;
+  position: fixed;
+  height: 70px;
+  transform: translateY(-70px);
+  background: rgba(255, 255, 255, 0);
+  overflow: visible;
+  box-sizing: border-box;
+  left: 8vw;
+  right: 8vw;
+  background: rgba(20, 20, 20, .7);
+}
+
+.moving-navbar-visible {
+  display: flex;
+  position: fixed;
+  height: 70px;
+  transform: translateY(none);
+  background: rgba(255, 255, 255, 0);
+  overflow: visible;
+  box-sizing: border-box;
+  left: 8vw;
+  right: 8vw;
+  background: rgba(20, 20, 20, .7);
+}
+
+.logo {
+  background-position: center;
+  background-size: 110px 110px;
+  width: 70px;
+  height: 70px;
+  margin: 0;
+  left: 0;
+}
+
+.button-space {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 70px;
+  background: transparent;
+}
+
+.moving-navbar-menu {
+  position: absolute;
+  display: flex;
+  transform: translateY(70px);
+  right: 0;
+  height: 70px;
+  width: 100px;
+  color: #fff;
+  text-align: center;
+  font-weight: 100;
+  font-size: 14px;
+  line-height: 70px;
+  opacity: .5;
+  cursor: pointer;
+}

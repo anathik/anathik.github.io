@@ -1,5 +1,6 @@
 // Base imports
 import React, { Component } from 'react';
+import scrollToComponent from 'react-scroll-to-component';
 
 // CSS imports
 import './index.css';
@@ -19,14 +20,23 @@ class Footer extends Component {
       }
 
     // Behavior
-    someFunction() {
-
+    goHomeOnClick() {
+      if(window.location.href !== "anathi.io") {
+        window.location.href='http://anathi.io';
+      } else if(window.location.href !== "anathi.io") {
+        scrollToComponent(document.getElementById("welcome-div"), {
+          offset: 0,
+          align: 'top',
+          duration: 750
+        });
+      }
     }
 
     render() {
         return (
           <div className="footer">
             <div className="footerLogo"
+              onClick={this.goHomeOnClick.bind(this)}
               style={{
                 backgroundImage: `url(${footerLogo})`
               }}

@@ -4,6 +4,7 @@ import scrollToComponent from 'react-scroll-to-component';
 import './App.css';
 
 import Navbar from '../Components/Navbar'
+import MovingNavbar from '../Components/MovingNavbar'
 import Welcome from '../Pages/Welcome'
 import About from '../Pages/About'
 import Contact from '../Pages/Contact'
@@ -29,6 +30,7 @@ class App extends Component {
       <div className="App">
         <div className="backToTop" onClick={this.scrollToAboutOnClick.bind(this, "welcome-div")}>Back to Top</div>
         <Navbar />
+        <MovingNavbar />
         <Welcome
           welcomeText="My name is Anathi."
           welcomeTextSecondLine="I build websites and mobile apps for humans."
