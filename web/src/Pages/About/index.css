@@ -31,7 +31,7 @@
     flex-direction: row;
     left: 100px;
     font-size: 12px;
-    transform: translateY(175px);
+    transform: translateY(95px);
     z-index: 2;
   }
 
@@ -60,7 +60,7 @@
     display: flex;
     position: absolute;
     flex-direction: row;
-    overflow: hidden;
+    overflow: hiddenw;
     height: 100%;
     left: 100px;
     right: 100px;
@@ -76,16 +76,15 @@
   .aboutInterests-interests,
   .aboutProfile-interests {
     box-sizing: border-box;
-    overflow: hidden;
-    padding-top: 200px;
+    overflow: visible;
+    padding-top: 155px;
     min-height: 100%;
     min-width: 100%;
     height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
-    transform: translateX(-100%);
-    transition-property: transform;
+    transition-property: transform opacity;
     transition-duration: 700ms;
   }
 
@@ -93,6 +92,15 @@
   .aboutProfile-profile,
   .aboutInterests-profile {
     transform: translateX(-100%);
+  }
+
+  .aboutInterests-skills,
+  .aboutProfile-skills,
+  .aboutSkills-interests,
+  .aboutProfile-interests,
+  .aboutSkills-profile,
+  .aboutInterests-profile {
+    opacity: 0;
   }
 
   .aboutSkills-skills,
@@ -217,12 +225,13 @@
 
   .column-text {
     margin-top: 20px;
-    font-size: 16px;
+    font-size: 14px;
     overflow-x: hidden;
     overflow-y: scroll;
     font-weight: 100;
     color: rgba(255,255,255,1);
     line-height: 38px;
+    letter-spacing: 0;
   }
 
 /* Skills stuff */
@@ -237,8 +246,8 @@
     align-items: center;
     justify-content: left;
     flex-direction: row;
-    margin-top: 30px;
     transform: translateX(-4px);
+    margin-bottom: 8px;
   }
 
   .skills-strengthsList {
@@ -261,9 +270,9 @@
   #iOS11,
   #Swift4 {
     display: flex;
-    width: 70px;
-    height: 70px;
-    line-height: 70px;
+    width: 9vw;
+    height: 9vw;
+    line-height: 9vw;
     text-align: center;
     box-sizing: border-box;
     font-size: smaller;
@@ -272,7 +281,7 @@
     border: 1px solid white;
     margin: 0 4px;
     cursor: default;
-    opacity: .5;
+    opacity: 1;
     transform: scale(1);
     transition-property: color border opacity transform;
     transition-duration: 200ms;
@@ -286,36 +295,58 @@
   #Swift4:hover {
     transition-property: color border opacity transform;
     transition-duration: 200ms;
+    color: #ffffff;
+    border: 1px solid white;
     opacity: 1;
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
 
-  #HTML5:hover {
+  #HTML5 {
     color: rgba(245, 118, 0, 0.911);
     border: 1px solid rgba(245, 118, 0, 0.911);
   }
-  #CSS3:hover {
+  #CSS3 {
     color: rgba(29, 202, 194, 0.911);
     border: 1px solid rgba(29, 202, 194, 0.911);
   }
-  #Js:hover {
+  #Js {
     color: rgba(25, 161, 55, 0.911);
     border: 1px solid rgba(25, 161, 55, 0.911);
   }
-  #Java:hover {
+  #Java {
     color: rgba(146, 26, 76, 0.911);
     border: 1px solid rgba(146, 26, 76, 0.911);
   }
-  #iOS11:hover {
+  #iOS11 {
     color: rgba(111, 24, 182, 0.911);
     border: 1px solid rgba(111, 24, 182, 0.911);
   }
-  #Swift4:hover {
+  #Swift4 {
     color: rgba(248, 244, 7, 0.918);
     border: 1px solid rgba(248, 244, 7, 0.918);
   }
 
-
+  .scroll-to-portfolio,
+  .scroll-to-portfolio:hover {
+    position: absolute;
+    left: 100px;
+    color: rgba(255, 255, 255, 1);
+    width: 140px;
+    height: 45px;
+    line-height: 45px;
+    font-weight: 100;
+    font-size: 15px;
+    transform: translateY(85vh);
+    cursor: pointer;
+    opacity: .6;
+    transition-property: opacity;
+    transition-duration: 350ms;
+  }
+  .scroll-to-portfolio:hover {
+    opacity: 1;
+    transition-property: opacity;
+    transition-duration: 350ms;
+  }
 
 
 /* Interests stuff */

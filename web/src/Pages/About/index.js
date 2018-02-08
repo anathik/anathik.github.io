@@ -1,5 +1,6 @@
 // Base imports
 import React, { Component } from 'react';
+import scrollToComponent from 'react-scroll-to-component';
 
 // CSS imports
 import './index.css';
@@ -17,15 +18,18 @@ class About extends Component {
     super();
     this.state = {
       // for controlling which section is visible
-      currentAboutSection:"profile",
-      skillsClass:"aboutSkills-profile",
-      profileClass:"aboutProfile-profile",
-      interestsClass:"aboutInterests-profile",
+      currentAboutSection:"skills",
+      skillsClass:"aboutSkills-skills",
+      profileClass:"aboutProfile-skills",
+      interestsClass:"aboutInterests-skills",
       
       // for indicating the current about section that ios visible
-      skillsSelectorClass:"aboutSelector-skills",
-      profileSelectorClass:"aboutSelector-profile-current",
-      interestsSelectorClass:"aboutSelector-interests"
+      skillsSelectorClass:"aboutSelector-skills-current",
+      profileSelectorClass:"aboutSelector-profile",
+      interestsSelectorClass:"aboutSelector-interests",
+
+      // for skill background text
+      currentSkillText:""
     };
   }
 
@@ -38,6 +42,15 @@ class About extends Component {
       this.scrollToInterests();
     }
     console.log(this.state.currentAboutSection);
+  }
+
+
+  scrollToPortfolioOnClick() {
+    scrollToComponent(document.getElementById('portfolio-div'), {
+      offset: 0,
+      align: 'top',
+      duration: 750
+    });
   }
 
   // Center view = translateX(-100%);
@@ -76,6 +89,25 @@ class About extends Component {
     this.setState({ interestsSelectorClass:"aboutSelector-interests-current" });
   }
 
+  showSkillBackgroundOnHover( skillname ) {
+    if ( skillname === "HTML5" ) {
+      this.setState({currentSkillText: "5 years mastery. It's a technology that I'm super comfortable with."});
+    } else if ( skillname === "CSS3" ) {
+      this.setState({currentSkillText: "5 years mastery. My favorite part of the stack with which I can make anything look pretty."});
+    } else if ( skillname === "Js" ) {
+      this.setState({currentSkillText: "5 years mastery. My apps would likely be pretty boring (even slow) without it... so thanks for that."});
+    } else if ( skillname === "Java" ) {
+      this.setState({currentSkillText: "4 years mastery. Not sure if the headaches were worth it yet, but there will surely be more. Ongoing love-hate relationship."});
+    } else if ( skillname === "iOS11" ) {
+      this.setState({currentSkillText: "3 months experience."});
+    } else if ( skillname === "Swift4" ) {
+      this.setState({currentSkillText: "3 months experience."});
+    }
+  }
+  hideSkillBackgroundOnLeave() {
+    this.setState({currentSkillText: ""});
+  }
+
   render() {
     const { welcomeText } = this.props;
     
@@ -84,20 +116,40 @@ class About extends Component {
         <div className="aboutSectionTitle">
           About
         </div>
-        <div className="profile-basicInfo">
-          <div className="profile-basicInfo-name">
-            <span>ANATHI KESWA</span>
-            <span id="name2ndStyle"> SOFTWARE DEVELOPER</span>
-          </div>
-        </div>
+        
         <div className="aboutContentSelector"> 
           <div className={this.state.skillsSelectorClass} onClick={this.translateContentOnClick.bind(this, "skills")}>SKILLS</div> 
           <div className={this.state.profileSelectorClass} onClick={this.translateContentOnClick.bind(this, "profile")}>PROFILE</div>
-          <div className={this.state.interestsSelectorClass} onClick={this.translateContentOnClick.bind(this, "")}>INTERESTS</div>
+          <div className={this.state.interestsSelectorClass} onClick={this.translateContentOnClick.bind(this, "interests")}>INTERESTS</div>
         </div>
         <div className="aboutSectionContent-1">
           <div className={ this.state.skillsClass }>
             <div className="skillsContentContainer">
+              <div className="skillsContentLeft">
+                <div className="skillIcons" id="HTML5" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "HTML5")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>HTML5</div>
+                <div className="skillIcons" id="CSS3" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "CSS3")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>CSS3</div>
+                <div className="skillIcons" id="Js" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "Js")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>Js</div>
+                <div className="skillIcons" id="Java" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "Java")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>Java</div>
+                <div className="skillIcons" id="iOS11" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "iOS11")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>iOS11</div>
+                <div className="skillIcons" id="Swift4" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "Swift4")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>Swift4</div>
+              </div>
+              <div className="skillsContentLeft">
+                <div className="skillIcons" id="HTML5" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "HTML5")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>Sketch</div>
+                <div className="skillIcons" id="CSS3" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "CSS3")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>DOCKER</div>
+                <div className="skillIcons" id="Js" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "Js")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>Node.js</div>
+                <div className="skillIcons" id="Java" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "Java")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>Java</div>
+                <div className="skillIcons" id="iOS11" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "iOS11")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>XML</div>
+                <div className="skillIcons" id="Swift4" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "Swift4")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>SQL</div>
+              </div>
+              <div className="skillsContentLeft">
+                <div className="skillIcons" id="HTML5" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "HTML5")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>Sketch</div>
+                <div className="skillIcons" id="CSS3" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "CSS3")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>DOCKER</div>
+                <div className="skillIcons" id="Js" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "Js")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>Node.js</div>
+                <div className="skillIcons" id="Java" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "Java")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>Java</div>
+                <div className="skillIcons" id="iOS11" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "iOS11")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>XML</div>
+                <div className="skillIcons" id="Swift4" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "Swift4")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>SQL</div>
+              </div>
+                {/*
                 <div className="skills-strengthsList">
                   AREAS OF EXPERTISE
                   <div className="skill-strength">UI/UX Design</div>
@@ -105,17 +157,10 @@ class About extends Component {
                   <div className="skill-strength">Frontend Development</div>
                   <div className="skill-strength">Mobile Development</div>
                 </div>
+                */}
                 <div className="profile-articleRegion-column1">
-                  <span className="column-text" id="part-1">I was born in State College, PA to a South African family. My father and oldest brother were the two people in my life that inspired me to explore Computer Science. Even as a kid I had a passion for imaginative creation: from legos and blanket-forts to enormous minecraft structures and carpentry projects. Soon enough I built my very first web application with just HTML/CSS. It wasn't much, but it was clear to me then that I wanted to learn everything there was to web development and software.</span>
+                  <span className="column-text" id="part-1">{this.state.currentSkillText}</span>
                 </div>
-              <div className="skillsContentLeft">
-                <div className="skillIcons" id="HTML5">HTML5</div>
-                <div className="skillIcons" id="CSS3">CSS3</div>
-                <div className="skillIcons" id="Js">Js</div>
-                <div className="skillIcons" id="Java">Java</div>
-                <div className="skillIcons" id="iOS11">iOS11</div>
-                <div className="skillIcons" id="Swift4">Swift4</div>
-              </div>
               <div className="skillsContentRight"></div>
             </div>
           </div>
@@ -143,8 +188,9 @@ class About extends Component {
             Interests
           </div>
         </div>
-       
-            
+        <div className="scroll-to-portfolio" onClick={this.scrollToPortfolioOnClick.bind(this)}>
+          <div>SEE MY WORK</div>
+        </div>
       </div>
     )
 
