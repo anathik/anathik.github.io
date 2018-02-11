@@ -8,7 +8,7 @@ import './index.css';
 // Foreign component imports
 
 // Media imports
-import aboutDefualtBackgrnd from '../../Media/farmbackground.png'
+import theFarmImage from '../../Media/farmbackground.png'
 import ResponsiveIcon from '../../Components/ResponsiveIcon'
 import profilePicture from '../../Media/anathi_selfie-colorized.jpg'
 
@@ -120,34 +120,93 @@ class About extends Component {
         <div className="aboutContentSelector"> 
           <div className={this.state.skillsSelectorClass} onClick={this.translateContentOnClick.bind(this, "skills")}>SKILLS</div> 
           <div className={this.state.profileSelectorClass} onClick={this.translateContentOnClick.bind(this, "profile")}>PROFILE</div>
-          <div className={this.state.interestsSelectorClass} onClick={this.translateContentOnClick.bind(this, "interests")}>INTERESTS</div>
+          {/* <div className={this.state.interestsSelectorClass} onClick={this.translateContentOnClick.bind(this, "interests")}>INTERESTS</div> */}
         </div>
         <div className="aboutSectionContent-1">
           <div className={ this.state.skillsClass }>
             <div className="skillsContentContainer">
-              <div className="skillsContentLeft">
-                <div className="skillIcons" id="HTML5" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "HTML5")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>HTML5</div>
-                <div className="skillIcons" id="CSS3" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "CSS3")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>CSS3</div>
-                <div className="skillIcons" id="Js" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "Js")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>Js</div>
-                <div className="skillIcons" id="Java" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "Java")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>Java</div>
-                <div className="skillIcons" id="iOS11" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "iOS11")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>iOS11</div>
-                <div className="skillIcons" id="Swift4" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "Swift4")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>Swift4</div>
+              <div className="skillsProfficiencyLegend"> 
+                <div className="highProficiency">ADVANCED</div>
+                <div className="proficiencyGradientScale"></div>
+                <div className="lowProficiency">BEGINNER</div>
               </div>
               <div className="skillsContentLeft">
-                <div className="skillIcons" id="HTML5" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "HTML5")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>Sketch</div>
-                <div className="skillIcons" id="CSS3" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "CSS3")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>DOCKER</div>
-                <div className="skillIcons" id="Js" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "Js")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>Node.js</div>
-                <div className="skillIcons" id="Java" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "Java")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>Java</div>
-                <div className="skillIcons" id="iOS11" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "iOS11")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>XML</div>
-                <div className="skillIcons" id="Swift4" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "Swift4")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>SQL</div>
+                <div className="skillIcons" id="Advanced1" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "HTML5")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>
+                  <div className="skillname">HTML5</div>
+                  <div className="skillyears">5 years</div>
+                </div>
+                <div className="skillIcons" id="Advanced1" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "CSS3")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>
+                  <div className="skillname">CSS3</div>
+                  <div className="skillyears">5 years</div>
+                </div>
+                <div className="skillIcons" id="Advanced1" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "Js")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>
+                  <div className="skillname">XML</div>
+                  <div className="skillyears">5 years</div>
+                </div>
+                <div className="skillIcons" id="Advanced2" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "Java")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>
+                  <div className="skillname">Java</div>
+                  <div className="skillyears">4 years</div>
+                </div>
+                <div className="skillIcons" id="Advanced2" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "iOS11")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>
+                  <div className="skillname">iOS11</div>
+                  <div className="skillyears">1 year</div>
+                </div>
+                <div className="skillIcons" id="Advanced2" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "Swift4")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>
+                  <div className="skillname">Swift4</div>
+                  <div className="skillyears">1 year</div>
+                </div>
               </div>
               <div className="skillsContentLeft">
-                <div className="skillIcons" id="HTML5" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "HTML5")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>Sketch</div>
-                <div className="skillIcons" id="CSS3" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "CSS3")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>DOCKER</div>
-                <div className="skillIcons" id="Js" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "Js")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>Node.js</div>
-                <div className="skillIcons" id="Java" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "Java")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>Java</div>
-                <div className="skillIcons" id="iOS11" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "iOS11")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>XML</div>
-                <div className="skillIcons" id="Swift4" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "Swift4")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>SQL</div>
+                <div className="skillIcons" id="Advanced1" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "HTML5")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>
+                  <div className="skillname">JavaScript</div>
+                  <div className="skillyears">5 years</div>
+                </div>
+                <div className="skillIcons" id="Advanced1" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "CSS3")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>
+                  <div className="skillname">React</div>
+                  <div className="skillyears">3 years</div>
+                </div>
+                <div className="skillIcons" id="Advanced2" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "Js")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>
+                  <div className="skillname">Node.js</div>
+                  <div className="skillyears">2 years</div>
+                </div>
+                <div className="skillIcons" id="Advanced2" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "Java")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>
+                  <div className="skillname">Docker</div>
+                  <div className="skillyears">4 years</div>
+                </div>
+                <div className="skillIcons" id="Advanced2" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "iOS11")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>
+                  <div className="skillname">Android</div>
+                  <div className="skillyears">2 years</div>
+                </div>
+                <div className="skillIcons" id="Advanced3" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "Swift4")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>
+                  <div className="skillname">Go</div>
+                  <div className="skillyears">1 year</div>
+                </div>
+              </div>
+              <div className="skillsContentLeft">
+                <div className="skillIcons" id="Advanced1" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "HTML5")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>
+                  <div className="skillname">Sketch</div>
+                  <div className="skillyears">1 year</div>
+                </div>
+                <div className="skillIcons" id="Advanced2" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "CSS3")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>
+                  <div className="skillname">Webpack</div>
+                  <div className="skillyears">3 years</div>
+                </div>
+                <div className="skillIcons" id="Advanced2" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "Js")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>
+                  <div className="skillname">Illustrator</div>
+                  <div className="skillyears">1 year</div>
+                </div>
+                <div className="skillIcons" id="Advanced3" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "Java")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>
+                  <div className="skillname">Photoshop</div>
+                  <div className="skillyears">1 year</div>
+                </div>
+                <div className="skillIcons" id="Advanced3" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "iOS11")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>
+                  <div className="skillname">XML</div>
+                  <div className="skillyears">1 year</div>
+                </div>
+                <div className="skillIcons" id="Advanced3" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "Swift4")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>
+                  <div className="skillname">Angular.js</div>
+                  <div className="skillyears">1 year</div>
+                </div>
               </div>
                 {/*
                 <div className="skills-strengthsList">
@@ -159,7 +218,6 @@ class About extends Component {
                 </div>
                 */}
                 <div className="profile-articleRegion-column1">
-                  <span className="column-text" id="part-1">{this.state.currentSkillText}</span>
                 </div>
               <div className="skillsContentRight"></div>
             </div>
@@ -170,7 +228,12 @@ class About extends Component {
                 <div className="profile-articleRegion-column1">
                   <span className="column-text" id="part-1">I was born in State College, PA to a South African family. My father and oldest brother were the two people in my life that inspired me to explore Computer Science. Even as a kid I had a passion for imaginative creation: from legos and blanket-forts to enormous minecraft structures and carpentry projects. Soon enough I built my very first web application with just HTML/CSS. It wasn't much, but it was clear to me then that I wanted to learn everything there was to web development and software.</span>
                 </div>
-                <div className="profile-articleRegion-column2" />
+                <div className="profile-articleRegion-column2">
+                  <div className="profile-image" id="pi-1" style={{ backgroundImage: `url(${theFarmImage})` }}/>
+                  <div className="profile-image" id="pi-2"/>
+                  <div className="profile-image" id="pi-3"/>
+                  <div className="profile-image" id="pi-4"/>
+                </div>
                 {/*
                 <div className="profile-articleRegion-column2">
                   <span className="column-heading" id="heading2">Motivations</span>
@@ -184,9 +247,11 @@ class About extends Component {
               </div>
             </div>
           </div>
+          {/*
           <div className={ this.state.interestsClass }>
             Interests
           </div>
+          */}
         </div>
         <div className="scroll-to-portfolio" onClick={this.scrollToPortfolioOnClick.bind(this)}>
           <div>SEE MY WORK</div>

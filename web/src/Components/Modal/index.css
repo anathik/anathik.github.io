@@ -15,7 +15,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(3, 3, 3, .85);
+  background: rgba(3, 3, 3, .5);
   opacity: 0;
   box-sizing: border-box;
   cursor: pointer;
@@ -28,22 +28,23 @@
 
 .projectModalWindow {
   position: fixed;
-  top: 2vh;
-  bottom: 2vh;
-  left: 3vw;
-  right: 3vw;
+  top: 15vh;
+  bottom: 12vh;
+  left: 15vw;
+  right: 15vw;
   background: transparent;
   z-index: 6;
   box-sizing: border-box;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  overflow: hidden;
 }
 
 .projectModal-mediaSection {
   width: 100%;
-  height: 58vh;
+  height: 100%;
   box-sizing: border-box;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;  
 }
 
 .projectModal-detailsSection {
@@ -61,9 +62,10 @@
 
 .projectStatline {
   display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: 35px;
+  flex-direction: column;
+  width: 100%;  
+  padding: 25px 20px 5px 20px;
+  text-shadow: 0px .5px 2px rgba(0, 0, 0, 0.4);
   box-sizing: border-box;
 }
 
@@ -73,7 +75,6 @@
 .projectStatline-link {
   display: flex;
   box-sizing: border-box;
-  padding: 0 25px;
   line-height: 35px;
   text-align: center;
   text-decoration: none;
@@ -89,15 +90,36 @@
 .projectStat-catagoryContent {
   text-decoration: none;
   color: #fff;
+  text-indent: 4px;
 }
 
 .projectDescription {
+  display: flex;
   color: #fff;
+  text-shadow: 0px .5px 2px rgba(0, 0, 0, 0.4);
   box-sizing: border-box;
-  align-self: center;
-  width: 50vw;
-  height: 280px;
-  padding: 30px 0;
+  align-self: baseline;
+  width: 35%;
+  margin: none;
+  padding: 0 0 0 20px;
+  font-size: 13px;
   line-height: 28px;
   font-weight: 100;
+}
+
+.go-to-project,
+.go-to-project:hover {
+  position: absolute;
+  left: 100px;
+  color: rgba(255, 255, 255, 1);
+  width: 140px;
+  height: 45px;
+  line-height: 45px;
+  font-weight: 100;
+  font-size: 15px;
+  transform: translateY(85vh);
+  cursor: pointer;
+  opacity: .6;
+  transition-property: opacity;
+  transition-duration: 350ms;
 }

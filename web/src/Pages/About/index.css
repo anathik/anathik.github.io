@@ -3,11 +3,13 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    max-width: 100vw;
     height: 100vh;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     overflow: hidden;
+    overflow-y: hidden;
     box-sizing: border-box;
     background: linear-gradient(#07070a, transparent, #07070a);
   }
@@ -60,7 +62,7 @@
     display: flex;
     position: absolute;
     flex-direction: row;
-    overflow: hiddenw;
+    overflow: hidden;
     height: 100%;
     left: 100px;
     right: 100px;
@@ -77,7 +79,7 @@
   .aboutProfile-interests {
     box-sizing: border-box;
     overflow: visible;
-    padding-top: 155px;
+    padding-top: 145px;
     min-height: 100%;
     min-width: 100%;
     height: 100%;
@@ -226,12 +228,31 @@
   .column-text {
     margin-top: 20px;
     font-size: 14px;
-    overflow-x: hidden;
-    overflow-y: scroll;
+    overflow: hidden;
     font-weight: 100;
     color: rgba(255,255,255,1);
     line-height: 38px;
     letter-spacing: 0;
+  }
+  .profile-image {
+    position: absolute;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 40%;
+  }
+  #pi-1 {
+    z-index: 1;
+  }
+  #pi-2 {
+    z-index: 0;
+  }
+  #pi-3 {
+    z-index: 0;
+  }
+  #pi-4 {
+    z-index: 0;
   }
 
 /* Skills stuff */
@@ -245,9 +266,9 @@
     display: flex;
     align-items: center;
     justify-content: left;
+    padding-left: 1.15vw;
     flex-direction: row;
-    transform: translateX(-4px);
-    margin-bottom: 8px;
+    align-items: center;
   }
 
   .skills-strengthsList {
@@ -262,68 +283,80 @@
     color: rgba(255,255,255,1);
   }
 
-  .skillIcons,
-  #HTML5,
-  #CSS3,
-  #Js,
-  #Java,
-  #iOS11,
-  #Swift4 {
+  .skillIcons {
     display: flex;
-    width: 9vw;
-    height: 9vw;
-    line-height: 9vw;
+    flex-direction: column;
+    justify-content: left;
+    width: 10vw;
+    height: 10vw;
+    overflow: hidden;
+    line-height: 10vw;
     text-align: center;
     box-sizing: border-box;
     font-size: smaller;
     font-weight: 100;
-    padding: 1vw;
-    border: 1px solid white;
-    margin: 0 4px;
+    z-index: 1;
+    color: white;
     cursor: default;
-    opacity: 1;
+    padding: 5vw .5vw .5vw 1vw;
+    margin: 4px 4px 0 0;
     transform: scale(1);
-    transition-property: color border opacity transform;
+    transition-property: color opacity transform box-shadow;
+    transition-duration: 200ms;
+    box-shadow: 3px 3px 5px 6px  #07070a00;
+  }
+  .skillname,
+  .skillyears {
+    font-size: 1.3vw;
+    text-align: left;
+    max-height: 1.5vw;
+    line-height: 1.5vw;
+    padding-bottom: 3px;
+  }
+  .skillyears {
+    opacity: 0;
+    font-size: 1vw;
+    color: rgba(255,255,255,.8);
+    transition-property: opacity;
     transition-duration: 200ms;
   }
 
-  #HTML5:hover,
-  #CSS3:hover,
-  #Js:hover,
-  #Java:hover,
-  #iOS11:hover,
-  #Swift4:hover {
-    transition-property: color border opacity transform;
+  #Advanced1:hover .skillyears,
+  #Advanced2:hover .skillyears,
+  #Advanced3:hover .skillyears,
+  #Advanced4:hover .skillyears,
+  #Advanced5:hover .skillyears {
+    opacity: 1;
+  }
+
+  #Advanced1:hover,
+  #Advanced2:hover,
+  #Advanced3:hover,
+  #Advanced4:hover,
+  #Advanced5:hover {
+    transition-property: color opacity transform box-shadow;
     transition-duration: 200ms;
     color: #ffffff;
-    border: 1px solid white;
+    z-index: 2;
     opacity: 1;
-    transform: scale(1.05);
+    transform: scale(1.2);
+    box-shadow: 1px #07070a;
   }
 
-  #HTML5 {
-    color: rgba(245, 118, 0, 0.911);
-    border: 1px solid rgba(245, 118, 0, 0.911);
+  #Advanced1 {
+    background: rgb(34, 102, 204);
   }
-  #CSS3 {
-    color: rgba(29, 202, 194, 0.911);
-    border: 1px solid rgba(29, 202, 194, 0.911);
+  #Advanced2 {
+    background: rgb(58, 31, 180);
   }
-  #Js {
-    color: rgba(25, 161, 55, 0.911);
-    border: 1px solid rgba(25, 161, 55, 0.911);
+  #Advanced3 {
+    background: #6d23b3;
   }
-  #Java {
-    color: rgba(146, 26, 76, 0.911);
-    border: 1px solid rgba(146, 26, 76, 0.911);
+  #Advanced4 {
+    background: #268f49;
   }
-  #iOS11 {
-    color: rgba(111, 24, 182, 0.911);
-    border: 1px solid rgba(111, 24, 182, 0.911);
-  }
-  #Swift4 {
-    color: rgba(248, 244, 7, 0.918);
-    border: 1px solid rgba(248, 244, 7, 0.918);
+  #Advanced5 {
+    background: #2c864a;
   }
 
   .scroll-to-portfolio,
@@ -348,5 +381,26 @@
     transition-duration: 350ms;
   }
 
+  .skillsProfficiencyLegend {
+    height: 25px;
+    margin-left: 1.15vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+  }
+  .highProficiency,
+  .lowProficiency {
+    font-size: 8px;
+    font-weight: 100;
+    letter-spacing: .1px;
+    line-height: 25px;
+  }
+  .proficiencyGradientScale {
+    width: 25vw;
+    height: 3px;
+    border-radius: 2px;
+    margin: 11px 5px;
+    background: linear-gradient(90deg, rgb(34, 102, 204) 0%, #6d23b3 100%); /* w3c */
+  }
 
 /* Interests stuff */
