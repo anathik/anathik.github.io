@@ -11,7 +11,7 @@ import Modal from '../../Components/Modal'
 // Media imports
 import questApparelBackgroundURL from '../../Media/quest-general-background.jpg'
 import questProjectImage1 from '../../Media/quest-intro-background.jpg'
-import iAmRichBackgroundURL from '../../Media/money.jpg'
+import iAmRichBackgroundURL from '../../Media/ringme-background.png'
 import railsightNYBackgroundURL from '../../Media/nysubway.jpg'
 import uproarBackgroundURL from '../../Media/nystudio.jpg'
 import proximityBackgroundURL from '../../Media/earbudpair.jpg'
@@ -58,14 +58,30 @@ class Portfolio extends Component {
     this.setState({ isModalVisible: true })
   }
 
+  visitProjectOnClick() {
+      window.location.href='http://anathi.io/quest-apparel';
+  }
   renderModal() {
 
     return (
       <Modal onDismissalRequested={this.onModalDismissal.bind(this)}>
         <div className="projectModalWindow">
+          <div className="projectHeading">
+            <span className="projectHeadingPrefix">PROJECT:</span>
+            <span className="projectHeadingCharacters">QUEST APPAREL</span>
+            <div className="modalCloseMessage">click outside to exit</div>
+          </div>
           <div className="projectModal-mediaSection" id="projectModalMedia1" style={{ backgroundImage: `url(${ questProjectImage1 })` }}> 
-          
-            <div className="projectStatline"> 
+          <div className="go-to-details">
+              <div>Details</div>
+          </div>
+          <a className="go-to-project" onClick={this.visitProjectOnClick.bind(this)}>
+              <div>Visit Project</div>
+          </a>
+          </div>
+          <div className="projectModal-mediaSection" />
+          {/*
+          <div className="projectStatline"> 
               <div className="projectStatline-tech">
                 <div className="projectStat-catagory">Tools: </div>
                 <div className="projectStat-catagoryContent">React.js</div>
@@ -76,8 +92,9 @@ class Portfolio extends Component {
               </div>
             </div>
             <div className="projectDescription">QuestApparel is an online clothing store. The goal was to create an e-commerce application with slick, minimalist design that would make shopping both easy and pleasant.</div>
-          </div>
-          {/*
+
+
+
           <div className="projectModal-mediaSection" id="projectModalMedia2"  />
           <div className="projectModal-detailsSection" id="projectModaldetails2"/>
           <div className="projectModal-mediaSection" id="projectModalMedia3"  />
@@ -87,9 +104,6 @@ class Portfolio extends Component {
           <div className="projectModal-mediaSection" id="projectModalMedia5"  />
           <div className="projectModal-detailsSection" id="projectModaldetails5"/>
           */} 
-          <div className="go-to-project">
-            <div>SEE MY WORK</div>
-          </div>
         </div>
       </Modal>
     )
@@ -154,7 +168,7 @@ class Portfolio extends Component {
               className="projectMenuItem"
               id="i-am-rich"
               onMouseOver={this.changeBackgroundOnHover.bind(this, "IAmRich")}
-              onMouseLeave={this.resetBackgroundOnMouseLeave.bind(this)}>I Am Rich</span>
+              onMouseLeave={this.resetBackgroundOnMouseLeave.bind(this)}>Ring Me</span>
             <div className="projectMenuItemDivider">
               <div className="projectMenuItemDivider-white-space" />
             </div>
