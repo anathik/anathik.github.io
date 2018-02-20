@@ -15,7 +15,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(3, 3, 3, 1);
+  background: rgba(0, 0, 0, 0.85);
   opacity: 0;
   box-sizing: border-box;
   cursor: pointer;
@@ -27,44 +27,169 @@
 }
 
 .projectModalWindow {
-  position: fixed;
-  top: 15vh;
-  bottom: 12vh;
-  left: 100px;;
-  right: 100px;
-  background: transparent;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 8vh;
+  bottom: 7vh;
+  width: 70vw;
+  background: rgba(255, 255, 255, 0.95);
   z-index: 6;
   box-sizing: border-box;
   overflow: hidden;
+  border-radius: 2px;
 }
 
 .projectModal-mediaSection {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  height: 100%;
+  height: 30vw;
+  min-width: 100%;
   box-sizing: border-box;
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;  
+  background-repeat: no-repeat;
+  background: rgba(0, 0, 0, 0.85);
+  overflow: hidden;
 }
-
-.projectModal-detailsSection {
+.projectModal-bioSection {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  height: 38vh;
-  background: rgb(10, 10, 10);
-  text-align: center;
-  justify-content: center;
-  color: #000000;
+  flex: 1;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.projectModal-bioSection-projectTitle {
+  display: flex;
+  flex-direction: column;
+  color: rgba(255, 255, 255, 1);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+  z-index: 3;
+  font-size: 2.5vw;
+  font-weight: 100;
+  margin-left: 2vw;
+  height: 6vw;
+  line-height: 6vw;
+  cursor: default;
+}
+.projectModal-bioSection-projectSubtitle {
+ font-size: 1vw;
+ color: rgba(255, 255, 255, .85);
+ height: 3vw;
+ line-height: 3vw;
+ transform: translateY(-2vw);
+}
+.bioSection-basicDetails {
+  display: flex;
+  flex-direction: row;
   box-sizing: border-box;
-  line-height: 20vh;
+  margin: 2vw 8vw 0 9vw;
+}
+.basicDetails-year,
+.basicDetails-role,
+.basicDetails-status {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  text-align: left;
+}
+.detailPrefix {
+  font-weight: 500;
+  font-size: 1.1vw;
+  text-transform: uppercase;
+}
+.detailSuffix {
+  font-weight: 100;
+  font-size: 1.1vw;
+  color: rgba(0, 0, 0, 0.85);
+}
+.bioSection-quotedDescription {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  text-align: center;
+  width: 85%;
+  margin-top: 1vw;
+  line-height: 0;
+  cursor: default;
+}
+.bioSection-bigQuotes {
+  font-size: 3vw;
+  font-weight: 700;
+  color: rgb(0, 0, 0);
+}
+.bioSection-quotedText {
+  display: flex;
+  font-size: 1.2vw;
+  color: #000000;
+  font-weight: 100;
+  letter-spacing: 1px;
+  line-height: 2.2vw;
+  text-align: center;
+}
+#startingQuote {
+  text-align: left;
+  transform: translateX(-7px);
+  line-height: 100%;
+}
+#endingQuote {
+  text-align: left;
+  transform: translateX(-7px);
+  line-height: 100%;
+}
+
+.skillsContentLeft-small {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  padding-top: .6vw;
+  align-items: center;
+}
+.skillIcons-small {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  min-width: 5vw;
+  min-height: 5vw;
+  max-width: 5vw;
+  max-height: 5vw;
+  overflow: hidden;
+  line-height: 4vw;
+  text-align: center;
+  box-sizing: border-box;
+  font-size: smaller;
+  font-weight: 100;
+  z-index: 1;
+  color: white;
+  cursor: default;
+  padding: 2.5vw .4vw .2vw .4vw;
+  margin: 6px 4px 2px 4px;
+  transform: scale(1);
+  transition-property: color opacity transform box-shadow;
+  transition-duration: 200ms;
+}
+.skillname-small,
+.skillyears-small {
+  font-size: .8vw;
+  text-align: left;
+  max-height: 1.5vw;
+  line-height: 1.5vw;
+  padding-bottom: 3px;
+}
+.skillyears {
+  opacity: 0;
+  font-size: 1.5vw;
+  color: rgba(255,255,255,.8);
+  transition-property: opacity;
+  transition-duration: 200ms;
 }
 
 .projectStatline {
   display: flex;
   flex-direction: column;
+  height: 40vh;
   width: 100%;  
   padding: 25px 20px 5px 20px;
   text-shadow: 0px .5px 2px rgba(0, 0, 0, 0.4);
@@ -78,6 +203,7 @@
   display: flex;
   box-sizing: border-box;
   line-height: 35px;
+  min-height: 35px;
   text-align: center;
   text-decoration: none;
   color: #fff;
@@ -101,11 +227,11 @@
   text-shadow: 0px .5px 2px rgba(0, 0, 0, 0.4);
   box-sizing: border-box;
   align-self: baseline;
-  width: 35%;
-  margin: none;
-  padding: 0 0 0 20px;
-  font-size: 13px;
-  line-height: 28px;
+  width: 30%;
+  min-height: 30vh;
+  margin: 8% 0 0 20px;
+  font-size: 14px;
+  line-height: 33px;
   font-weight: 100;
 }
 
@@ -113,57 +239,189 @@
 .go-to-project:hover,
 .go-to-details,
 .go-to-details:hover {
+  border: 1px solid rgba(255, 255, 255, 0.705);
   display: flex;
   position: absolute;
-  left: 25px;
+  right: 2vw;
+  padding: 0 15px;
   color: rgba(255, 255, 255, 1);
-  height: 40px;
-  transform: translateY(62vh);
+  height: 3.2vw;
+  top: 25.5vw;
   text-align: center;
   text-transform: uppercase;
-  line-height: 45px;
+  line-height: 3.2vw;
+  z-index: 4;
   font-weight: 100;
-  font-size: 15px;
+  font-size: 1vw;
   letter-spacing: 1px;
   cursor: pointer;
   opacity: .6;
-  border-bottom: 1px solid rgba(255, 255, 255, 0);
-  transition-property: opacity border-bottom;
-  transition-duration: 350ms;
+  transition-property: opacity border;
+  transition-duration: 150ms;
 }
 .go-to-details,
 .go-to-details:hover {
-  left: 182px;
+  left: 205px;
 }
-.go-to-project:hover,
+.go-to-project:hover {
+  opacity: 1;
+  border: 1px solid rgb(255, 255, 255);  
+}
 .go-to-details:hover {
   opacity: 1;
-  border-bottom: 1px solid rgba(255, 255, 255, .7);
+  border: 1px solid rgb(204, 33, 33);
 }
 .projectHeading {
+  position: absolute;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   height: 25px;
-  font-size: 22px;
+  font-size: 26px;
   color: #fff;
   cursor: default;
   line-height: 25px;
-  margin-bottom: 2px;
+  margin: 20px 0 0 30px;
 }
 .projectHeadingCharacters {
-  font-weight: 900;
-  text-indent: 4.5px;
+  padding-left: 20px;
+  font-weight: 100;
+  letter-spacing: 2px;
 }
 .projectHeadingPrefix {
+  padding-left: 20px;
   font-weight: 100;
   opacity: .7;
   letter-spacing: 2px;
 }
 .modalCloseMessage {
   font-weight: 100;
+  padding-left: 20px;
   letter-spacing: 1px;
   font-size: 14px;
   flex: 1;
   color: rgba(255, 255, 255, 0.75);
-  text-align: right;
 }
+.projectDetailsSection {
+  display: flex;
+  height: 100%;
+  width: 35%;
+  left: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+.mediaSelectionScene1,
+.mediaSelectionScene2,
+.mediaSelectionScene3,
+.mediaSelectionScene4,
+.mediaSelectionScene5
+ {
+  position: absolute;
+  height: 30vw;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: 350ms;
+} 
+
+.mediaSelectionScene1-visible,
+.mediaSelectionScene2-visible,
+.mediaSelectionScene3-visible,
+.mediaSelectionScene4-visible,
+.mediaSelectionScene5-visible
+ {
+  position: absolute;
+  z-index: 2;
+  height: 30vw;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 1;
+  transition-delay: 100ms;
+  transition-property: opacity;
+  transition-duration: 350ms;
+}
+.projectExit {
+  position: absolute;
+  font-weight: 100;
+  font-size: 2vw;
+  right: 0;
+  height: 6vw;
+  text-align: center;
+  line-height: 6vw;
+  width: 6vw;
+  z-index: 3;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.7);
+  transition-property: color;
+  transition-duration: 350ms; 
+}
+.projectExit:hover {
+  color: rgba(255, 255, 255, 1);
+}
+.projectMediaSelector {
+  margin-left: 2.2vw;
+  position: absolute;
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: row;
+  z-index: 3;
+  color: #fff;
+  cursor: default;
+  top: 26vw;
+  height: 3vw;
+  align-items: center;
+}
+.projectMediaSelectorBubble,
+.projectMediaSelectorBubble1-current,
+.projectMediaSelectorBubble2-current,
+.projectMediaSelectorBubble3-current,
+.projectMediaSelectorBubble4-current,
+.projectMediaSelectorBubble5-current,
+.projectMediaSelectorBubble1,
+.projectMediaSelectorBubble2,
+.projectMediaSelectorBubble3,
+.projectMediaSelectorBubble4,
+.projectMediaSelectorBubble5 {
+  display: inline-block;
+  max-width: 1vw;
+  max-height: 1vw;
+  min-width: 1vw;
+  min-height: 1vw;
+  margin-right: 2.5vw;
+  cursor: pointer;
+  transition-property: transform background border;
+  transition-duration: 200ms;
+  border-radius: 1vw;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  background: none;
+}
+.projectMediaSelectorBubble:hover,
+.projectMediaSelectorBubble1-current,
+.projectMediaSelectorBubble2-current,
+.projectMediaSelectorBubble3-current,
+.projectMediaSelectorBubble4-current,
+.projectMediaSelectorBubble5-current,
+.projectMediaSelectorBubble1:hover,
+.projectMediaSelectorBubble2:hover,
+.projectMediaSelectorBubble3:hover,
+.projectMediaSelectorBubble4:hover,
+.projectMediaSelectorBubble5:hover  {
+  transform: scale(1.5);
+  border-radius: 1.5vw;
+  border: 1px solid rgba(255, 255, 255, 1);
+  transition-property: transform background border;
+  background: #fff;
+  transition-duration: 500ms;
+}
+.projectMediaSelectorBubble1:hover,
+.projectMediaSelectorBubble2:hover,
+.projectMediaSelectorBubble3:hover,
+.projectMediaSelectorBubble4:hover,
+.projectMediaSelectorBubble5:hover  {
+  background: none;
+}
+
