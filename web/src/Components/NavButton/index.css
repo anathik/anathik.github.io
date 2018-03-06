@@ -1,29 +1,38 @@
 .nav-button {
-  margin: 0 2vw 0 2vw;
-  background: transparent;
-  text-align: center;
-  height: 40px;
-  line-height: 38px;
-  font-size: 14px;
-  text-transform: capitalize;
-  letter-spacing: 1.5px;
+  align-items: center;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  margin-left: 40px;
+  max-height: 40px;
+  max-width: 70px;
+  min-height: 40px;
+  min-width: 70px;
   overflow: hidden;
-  color: rgb(255, 255, 255);
+  position: relative;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.nav-button-label {
+  color: #fff;
+  font-size: 14px;
   font-weight: 300;
+  letter-spacing: 1.5px;
 }
 
 .hover-indicator {
-  width: 100%;
+  background: #fff;
+  bottom: 0;
   height: 2px;
-  background: rgb(255, 255, 255);
-  transform: translateX(-103%);
-  transition-property: transform;
-  transition-duration: 450ms;
+  left: 0;
+  position: absolute;
+  right: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 200ms;
 }
 
 .nav-button:hover .hover-indicator {
-  transform: translateX(-20%);
-  transition-property: transform;
-  transition-duration: 450ms;
+  transform: scaleX(1);
 }

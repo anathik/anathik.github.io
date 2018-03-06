@@ -1,40 +1,30 @@
 .welcome {
   display: flex;
+  position: relative;
+}
+
+.welcome-left {
+  bottom: 40px;
+  display: flex;
   flex-direction: column;
-  width: 100%;
-  height: 100vh;
-  padding: 70px 0 0 0;
-  background-position: right bottom;
-  background-repeat: no-repeat;
-  background-size: 90vh 90vh;
-  overflow: hidden;
-  box-sizing: border-box;
+  justify-content: center;
+  left: 120px;
+  max-width: 40vw;
+  position: absolute;
+  top: 70px;
+  z-index: 1001;
 }
 
 .welcome-introduction {
-  position: absolute;
   display: flex;
   flex-direction: column;
-  width: 62vw;
-  height: 80vh;
-  min-width: 350px;
-  left: 100px;
-  right: 0;
-  overflow: hidden;
-  justify-content: center;
 }
 
 .welcome-greeting,
 .welcome-description {
-  display: inline-block;
-  top: 15vh;
-  width: 50vw;
-  overflow: visible;
   font-size: 40px;
   font-weight: 100;
   letter-spacing: 2px;
-  cursor: default;
-  text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
 }
 
 .welcome-paragraph {
@@ -45,66 +35,58 @@
   letter-spacing: 1px;
   line-height: 30px;
   cursor: default;
-  text-shadow: 2px 4px 3px rgba(0,0,0,0.6);
 }
 
-.welcome-background {
-  background-position: right;
-  background-repeat: no-repeat;
-  background-size: 70vh 70vh;
-  width: 400px;
-  height: 600px;
-  margin: 0 0 0 1vw;
-  right: 0;
-  align-self: baseline;
+.welcome-links {
+  display: flex;
+  margin-top: 4vh;
 }
 
-.black-fade {
+.welcome-link {
+  color: #fff;
+  cursor: pointer;
+  font-weight: 100;
+  font-size: 15px;
+  line-height: 45px;
+  min-width: 140px;
+  min-height: 45px;
+  opacity: .6;
+  transition: opacity 350ms;
+}
+
+.welcome-link:hover {
+  opacity: 1;
+}
+
+.welcome-right {
+  align-items: flex-end;
+  bottom: 0;
   display: flex;
   flex: 1;
-  align-self: baseline;
-  width: 100%;
-  background: linear-gradient(transparent, #07070a);
+  justify-content: flex-end;
+  min-width: 300px;
+  position: absolute;
+  right: 20px;
+  top: 70px;
+  z-index: 1000;
 }
 
-.scroll-to-about,
-.scroll-to-about:hover {
+.welcome-selfie {
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  background-size: cover;
+  max-height: 90vh;
+  max-width: 90vh;
+  min-height: 90vh;
+  min-width: 90vh;
+  position: relative;
+}
+
+.welcome-fade-overlay {
+  background: linear-gradient(transparent, #07070a);
+  bottom: 0;
+  left: 0;
   position: absolute;
-  left: 100px;
-  bottom: 10vh;
-  color: rgba(255, 255, 255, 1);
-  width: 140px;
-  height: 45px;
-  line-height: 45px;
-  font-weight: 100;
-  font-size: 15px;
-  cursor: pointer;
-  opacity: .6;
-  transition-property: opacity;
-  transition-duration: 350ms;
-}
-.scroll-to-about:hover {
-  opacity: 1;
-  transition-property: opacity;
-  transition-duration: 350ms;
-}
-.download-resume {
-  position: absolute;
-  left: 240px;
-  bottom: 10vh;
-  color: rgba(255, 255, 255, 1);
-  width: 150px;
-  height: 45px;
-  line-height: 45px;
-  font-weight: 100;
-  font-size: 15px;
-  cursor: pointer;
-  transition-property: opacity;
-  transition-duration: 350ms;
-  opacity: .6;
-}
-.download-resume:hover {
-  transition-property: opacity;
-  transition-duration: 350ms;
-  opacity: 1;
+  right: 0;
+  top: 0;
 }
