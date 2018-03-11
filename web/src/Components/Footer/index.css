@@ -11,7 +11,7 @@
   align-self: center;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 110px 110px;
+  background-size: 51px 30px;
   height: 70px;
   width: 100%;
   left: 0;
@@ -88,7 +88,6 @@
   color: rgb(255, 255, 255);
   transition-property: color;
   transition-duration: 300ms;
-  cursor: pointer;
 }
 
 #twitter:hover {

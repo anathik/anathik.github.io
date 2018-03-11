@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import scrollToComponent from 'react-scroll-to-component';
+import React, { Component } from 'react'
+import scrollToComponent from 'react-scroll-to-component'
 
-import './App.css';
+import './App.css'
 
 import Navbar from '../Components/Navbar'
 import MovingNavbar from '../Components/MovingNavbar'
@@ -14,21 +14,20 @@ import Footer from '../Components/Footer'
 class App extends Component {
   // In this format a constructor is required. Make sure you understand why...
   constructor() {
-    super();
+    super()
   }
 
   scrollToAboutOnClick(elementId) {
     scrollToComponent(document.getElementById(elementId), {
       offset: 0,
       align: 'top',
-      duration: 750
-  });
+      duration: 750,
+    })
   }
 
   render() {
     return (
       <div className="App">
-        <div className="backToTop" onClick={this.scrollToAboutOnClick.bind(this, "welcome-div")}>Back to Top</div>
         <Navbar />
         <Welcome
           welcomeText="My name is Anathi."
@@ -40,9 +39,8 @@ class App extends Component {
         <Contact />
         <Footer />
       </div>
-    );
+    )
   }
-  
-};
+}
 
-export default App;
+export default App

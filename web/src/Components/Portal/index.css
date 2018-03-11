@@ -1,12 +1,12 @@
 .portal {
-  position: fixed; 
+  position: fixed;
   display: flex;
   justify-content: center;
   right: 0;
   left: 0;
   top: 0;
   bottom: 0;
-  z-index: 10;
+  z-index: 10000;
   background: rgba(0, 0, 0, 0.8);
   font-family: 'Montserrat', sans-serif;
 }

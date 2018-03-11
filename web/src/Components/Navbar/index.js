@@ -34,15 +34,15 @@ class Navbar extends Component {
   }
 
   render() {
-    return ( 
+    return (
       <div className="navbar">
-        <div className="logo"
+        <div className="navbar-logo"
           onClick={this.goHomeOnClick.bind(this)}
           style={{
             backgroundImage: `url(${anathiLogo})`
           }}
         />
-        <div className="button-space">
+        <div className="navbar-buttons">
           <NavButton text="Profile" scrollTarget="about-div"/>
           <NavButton text="Projects" scrollTarget="portfolio-div"/>
           <NavButton text="Contact" scrollTarget="contact-div"/>
