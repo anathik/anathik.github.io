@@ -1,6 +1,5 @@
 .nav-button {
   align-items: center;
-  cursor: pointer;
   display: flex;
   justify-content: center;
   margin-left: 40px;
@@ -12,6 +11,12 @@
   position: relative;
   text-align: center;
   text-transform: capitalize;
+}
+
+@media (max-width: 600px) {
+  .nav-button:first-child {
+    margin-left: 0;
+  }
 }
 
 .nav-button-label {

@@ -39,7 +39,7 @@ class NavButton extends Component {
 
     return (
       <div
-        className="nav-button"
+        className="nav-button clickable"
         onClick={this.scrollToAboutOnClick.bind(this, scrollTarget)}>
         <div className="nav-button-label">{text}</div>
         <div className="hover-indicator" />

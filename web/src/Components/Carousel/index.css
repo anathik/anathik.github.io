@@ -51,7 +51,6 @@
   background: rgba(255, 255, 250, 1);
   margin: 0 13px 0 13px;
   opacity: 1;
-  cursor: pointer;
 }
 
 .Bubble-selected {
@@ -73,7 +72,6 @@
   background: rgba(260, 260, 260, 0);
   transition-duration: .7s;
   transition-property: opacity;
-  cursor: pointer;
 }
 
 .Carousel-prev .material-icons,
@@ -109,7 +107,6 @@
   background: rgba(260, 260, 260, 0.4);
   transition-duration: 1s;
   transition-property: opacity background;
-  cursor: pointer;
 }*/
 
 .Carousel-prev {

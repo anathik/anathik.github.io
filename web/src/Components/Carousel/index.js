@@ -65,10 +65,10 @@ export class Carousel extends Component {
         className={carouselClassName}
         onMouseEnter={this.hoverHandler.bind(this)}
         onMouseLeave={this.unhoverHandler.bind(this)}>
-        <div className="Carousel-prev" onClick={this.props.onPreviousRequested}>
+        <div className="Carousel-prev clickable" onClick={this.props.onPreviousRequested}>
           <i className="material-icons">keyboard_arrow_left</i>
         </div>
-        <div className="Carousel-next" onClick={this.props.onNextRequested}>
+        <div className="Carousel-next clickable" onClick={this.props.onNextRequested}>
           <i className="material-icons">keyboard_arrow_right</i>
         </div>
 

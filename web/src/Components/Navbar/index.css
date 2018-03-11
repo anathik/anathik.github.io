@@ -11,6 +11,21 @@
   z-index: 10000;
 }
 
+@media (max-width: 1000px) {
+  .navbar {
+    left: 50px;
+    right: 50px;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    left: 0;
+    right: 0;
+  }
+}
+
 .navbar-logo {
   background-position: center center;
   background-repeat: no-repeat;
@@ -28,4 +43,10 @@
   align-items: center;
   height: 70px;
   background: transparent;
+}
+
+@media (max-width: 600px) {
+  .navbar-buttons {
+    height: 50px;
+  }
 }

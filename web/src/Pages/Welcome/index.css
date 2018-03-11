@@ -1,5 +1,6 @@
 .welcome {
   display: flex;
+  min-height: 100vh;
   position: relative;
 }
 
@@ -12,7 +13,27 @@
   max-width: 40vw;
   position: absolute;
   top: 70px;
+  transform: translateX(0);
+  transition: transform 250ms;
   z-index: 1001;
+}
+
+@media (max-width: 1000px) {
+  .welcome-left {
+    transform: translateX(-70px) /* 50px = 120px - 70px */;
+  }
+}
+
+@media (max-width: 600px) {
+  .welcome-left {
+    bottom: 40vh;
+    left: 50px;
+    max-width: none;
+    right: 50px;
+    text-align: center;
+    top: 120px;
+    transform: translateX(0);
+  }
 }
 
 .welcome-introduction {
@@ -20,11 +41,30 @@
   flex-direction: column;
 }
 
+.welcome-greeting {
+  margin-bottom: 10px;
+}
+
 .welcome-greeting,
 .welcome-description {
   font-size: 40px;
   font-weight: 100;
   letter-spacing: 2px;
+}
+
+@media (max-width: 1000px) {
+  .welcome-greeting,
+  .welcome-description {
+    font-size: 32px;
+    letter-spacing: 1px;
+  }
+}
+
+@media (max-width: 600px) {
+  .welcome-greeting,
+  .welcome-description {
+    font-size: 3.5vh;
+  }
 }
 
 .welcome-paragraph {
@@ -37,14 +77,32 @@
   cursor: default;
 }
 
+@media (max-width: 1000px) {
+  .welcome-paragraph {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  .welcome-paragraph {
+    display: none;
+  }
+}
+
 .welcome-links {
   display: flex;
   margin-top: 4vh;
 }
 
+@media (max-width: 600px) {
+  .welcome-links {
+    justify-content: center;
+    margin-top: 20px;
+  }
+}
+
 .welcome-link {
   color: #fff;
-  cursor: pointer;
   font-weight: 100;
   font-size: 15px;
   line-height: 45px;
@@ -56,6 +114,13 @@
 
 .welcome-link:hover {
   opacity: 1;
+}
+
+@media (max-width: 1000px) {
+  .welcome-link {
+    font-size: 13px;
+    min-width: 120px;
+  }
 }
 
 .welcome-right {
@@ -71,8 +136,18 @@
   z-index: 1000;
 }
 
+@media (max-width: 600px) {
+  .welcome-right {
+    align-items: initial;
+    justify-content: initial;
+    left: 0;
+    right: 0;
+    top: 50vh;
+  }
+}
+
 .welcome-selfie {
-  background-position: bottom right;
+  background-position: bottom center;
   background-repeat: no-repeat;
   background-size: cover;
   max-height: 90vh;
@@ -80,6 +155,33 @@
   min-height: 90vh;
   min-width: 90vh;
   position: relative;
+  transform: translateX(0);
+  transform-origin: bottom right;
+  transition: transform 250ms;
+}
+
+@media (max-width: 1150px) {
+  .welcome-selfie {
+    transform: translateX(15%);
+  }
+}
+
+@media (max-width: 850px) {
+  .welcome-selfie {
+    transform: translateX(30%);
+  }
+}
+
+@media (max-width: 600px) {
+  .welcome-selfie {
+    background-size: contain;
+    flex: 1;
+    max-height: none;
+    max-width: none;
+    min-height: 0;
+    min-width: 0;
+    transform: translateX(0);
+  }
 }
 
 .welcome-fade-overlay {

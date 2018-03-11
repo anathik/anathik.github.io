@@ -17,7 +17,7 @@ class MovingNavbar extends Component {
     super();
     this.state = {
       someState: "its just an example, dude",
-      movingNavbarClassName: "moving-navbar" 
+      movingNavbarClassName: "moving-navbar"
     };
   }
 
@@ -39,14 +39,14 @@ class MovingNavbar extends Component {
       this.setState({movingNavbarClassName: "moving-navbar-visible"})
     } else if(this.state.movingNavbarClassName === "moving-navbar-visible"){
       this.setState({movingNavbarClassName: "moving-navbar"})
-    } 
+    }
   }
 
   render() {
-    return ( 
+    return (
       <div className={this.state.movingNavbarClassName}>
         <div className="logo" />
-        <div className="moving-navbar-menu" onClick={this.openMenuOnClick.bind(this)}></div>
+        <div className="moving-navbar-menu clickable" onClick={this.openMenuOnClick.bind(this)}></div>
         <div className="button-space">
           <NavButton text="Profile" scrollTarget="about-div"/>
           <NavButton text="Projects" scrollTarget="portfolio-div"/>

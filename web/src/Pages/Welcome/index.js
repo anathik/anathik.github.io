@@ -41,12 +41,12 @@ class Welcome extends Component {
           </div>
           <div className="welcome-links">
             <div
-              className="welcome-link"
+              className="welcome-link clickable"
               onClick={this.scrollToAboutOnClick.bind(this, 'about-div')}>
               ABOUT ME
             </div>
             <div
-              className="welcome-link"
+              className="welcome-link clickable"
               href={anathiResume}
               download="anathi_resume.pdf">
               RESUMÉ

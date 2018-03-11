@@ -1,9 +1,9 @@
 // Base imports
-import React, { Component } from 'react';
-import scrollToComponent from 'react-scroll-to-component';
+import React, { Component } from 'react'
+import scrollToComponent from 'react-scroll-to-component'
 
 // CSS imports
-import './index.css';
+import './index.css'
 
 // Foreign component imports
 
@@ -12,254 +12,421 @@ import theFarmImage from '../../Media/farmbackground.png'
 import ResponsiveIcon from '../../Components/ResponsiveIcon'
 import profilePicture from '../../Media/anathi_selfie-colorized.jpg'
 
+// Number of skill boxes on each row for a desktop resolution.
+const desktopSkillBoxesPerRow = 6
+
+// Number of skill boxes on each row for a mobile resolution.
+const mobileSkillBoxesPerRow = 3
+
+// Size of margins around each skill box.
+const skillBoxMargin = 4 /* px */
+
+// Width of the skill box container at which the number of skill boxes per row
+// changes.
+const skillBoxesPerRowBreakpoint = 600 /* px */
+
 class About extends Component {
   // In this format a constructor is required. Make sure you understand why...
-  constructor() {
-    super();
+  constructor(props) {
+    super(props)
+
+    // Reference to the skill box container element.
+    this.skillBoxContainerRef = null
+
+    // Called whenever the size of the window changes. This function checks
+    // for changes in the width of `this.skillBoxContainerRef`.
+    this.onWindowResized = () =>
+      requestAnimationFrame(() => this.checkForSizeChangesToSkillBoxContainer())
+
+    // Called whenever a sub-nav item is clicked.
+    this.onSubNavItemClicked = selectedSubNavIndex =>
+      this.setState({ visibleSubSectionIndex: selectedSubNavIndex })
+
     this.state = {
       // for controlling which section is visible
-      currentAboutSection:"skills",
-      skillsClass:"aboutSkills-skills",
-      profileClass:"aboutProfile-skills",
-      interestsClass:"aboutInterests-skills",
-      
+      currentAboutSection: 'skills',
+      skillsClass: 'aboutSkills-skills',
+      profileClass: 'aboutProfile-skills',
+      interestsClass: 'aboutInterests-skills',
+
       // for indicating the current about section that ios visible
-      skillsSelectorClass:"aboutSelector-skills-current",
-      profileSelectorClass:"aboutSelector-profile",
-      interestsSelectorClass:"aboutSelector-interests",
+      skillsSelectorClass: 'subnav-item clickable highlighted',
+      profileSelectorClass: 'subnav-item clickable',
+      interestsSelectorClass: 'subnav-item clickable',
 
-      // for skill background text
-      currentSkillText:""
-    };
-  }
+      // Width of the skill box container.
+      skillBoxContainerWidth: null,
 
-  translateContentOnClick( target ) {
-    if (target !== this.state.currentAboutSection && target === "profile") {
-      this.scrollToProfile();
-    } else if (target !== this.state.currentAboutSection && target === "skills") {
-      this.scrollToSkills();
-    } else if (target !== this.state.currentAboutSection && target === "interests") {
-      this.scrollToInterests();
+      // The Number of boxes in each row of the skill box container.
+      skillBoxesPerRow: null,
+
+      // Width and height of each skill box. Depends on
+      // `skillBoxContainerWidth` and `skillBoxesPerRow`.
+      skillBoxSize: null,
+
+      // Skills to be turned into boxes.
+      skills: [
+        { name: 'HTML 5', level: 3, experience: '5 years' },
+        { name: 'CSS 3', level: 3, experience: '5 years' },
+        { name: 'XML', level: 3, experience: '5 years' },
+        { name: 'Java', level: 2, experience: '4 years' },
+        { name: 'iOS 11', level: 2, experience: '1 year' },
+        { name: 'Swift 4', level: 2, experience: '1 year' },
+        { name: 'Javascript', level: 3, experience: '5 years' },
+        { name: 'React', level: 3, experience: '3 years' },
+        { name: 'Node.js', level: 2, experience: '2 years' },
+        { name: 'Docker', level: 2, experience: '4 years' },
+        { name: 'Android', level: 2, experience: '2 years' },
+        { name: 'Go', level: 1, experience: '1 year' },
+        { name: 'Sketch', level: 3, experience: '1 years' },
+        { name: 'Webpack', level: 2, experience: '3 years' },
+        { name: 'Illustrator', level: 2, experience: '1 year' },
+        { name: 'Photoshop', level: 1, experience: '1 year' },
+        { name: 'jQuery', level: 1, experience: '1 year' },
+        { name: 'Angular', level: 1, experience: '1 year' },
+      ],
+
+      // Sub-sections of this section.
+      subSections: [
+        {
+          label: 'skills',
+          renderer: () => this.renderSkillsSubSection(),
+        },
+        { label: 'profile', renderer: () => this.renderProfileSubSection() },
+      ],
+
+      // Index of the currently visible sub-section.
+      visibleSubSectionIndex: 0,
     }
-    console.log(this.state.currentAboutSection);
   }
 
+  /**
+   * Checks for dimensional changes to `this.skillBoxContainerRef`. If there
+   * were any changes, state is updated accordingly.
+   */
+  checkForSizeChangesToSkillBoxContainer() {
+    if (!this.skillBoxContainerRef) return
 
-  scrollToPortfolioOnClick() {
-    scrollToComponent(document.getElementById('portfolio-div'), {
-      offset: 0,
-      align: 'top',
-      duration: 750
-    });
+    const latestSkillBoxContainerWidth = this.skillBoxContainerRef.offsetWidth
+
+    const isOnMobileDevice =
+      latestSkillBoxContainerWidth <= skillBoxesPerRowBreakpoint
+    const latestSkillBoxesPerRow = isOnMobileDevice
+      ? mobileSkillBoxesPerRow
+      : desktopSkillBoxesPerRow
+
+    let shouldUpdateState = false
+    let stateUpdates = {}
+
+    // If the skill box container changed in size, kick off an update.
+    if (latestSkillBoxContainerWidth != this.skillBoxContainerWidth) {
+      shouldUpdateState = true
+      stateUpdates = {
+        ...stateUpdates,
+        skillBoxContainerWidth: latestSkillBoxContainerWidth,
+      }
+    }
+
+    // If the skill box container changed in size, kick off an update.
+    if (latestSkillBoxesPerRow != this.skillBoxesPerRow) {
+      shouldUpdateState = true
+      stateUpdates = {
+        ...stateUpdates,
+        skillBoxesPerRow: latestSkillBoxesPerRow,
+      }
+    }
+
+    if (shouldUpdateState) {
+      this.setState(stateUpdates)
+    }
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.onWindowResized)
+
+    // Force state relating to element sizes to be initialized.
+    this.checkForSizeChangesToSkillBoxContainer()
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.onWindowResized)
+  }
+
+  /** Calculates the ideal size for each skill box. */
+  getSkillBoxSize(skillBoxContainerWidth, skillBoxesPerRow) {
+    // Only continue if the inputs are valid (truthy).
+    if (!skillBoxContainerWidth || !skillBoxesPerRow) {
+      return null
+    }
+
+    const skillBoxOuterWidth = Math.floor(
+      skillBoxContainerWidth / skillBoxesPerRow
+    )
+    const skillBoxInnerWidth = skillBoxOuterWidth - skillBoxMargin
+
+    return skillBoxInnerWidth
+  }
+
+  /** Gets the color that maps to the given skill level. */
+  getSkillLevelColor(skillLevel) {
+    switch (skillLevel) {
+      case 3:
+        return 'rgb(34, 102, 204)' /* Blue */
+      case 2:
+        return 'rgb(58, 31, 180)' /* Purple */
+      case 1:
+        return '#6d23b3' /* Magenta */
+      default:
+        return '#222222' /* Gray */
+    }
   }
 
   // Center view = translateX(-100%);
   scrollToProfile() {
-    this.setState({ currentAboutSection:"profile" });
-    this.setState({ skillsClass:"aboutSkills-profile" });
-    this.setState({ profileClass:"aboutProfile-profile" });
-    this.setState({ interestsClass:"aboutInterests-profile" });
+    this.setState({ currentAboutSection: 'profile' })
+    this.setState({ skillsClass: 'aboutSkills-profile' })
+    this.setState({ profileClass: 'aboutProfile-profile' })
+    this.setState({ interestsClass: 'aboutInterests-profile' })
 
-    this.setState({ skillsSelectorClass:"aboutSelector-skills" });
-    this.setState({ profileSelectorClass:"aboutSelector-profile-current" });
-    this.setState({ interestsSelectorClass:"aboutSelector-interests" });
+    this.setState({ skillsSelectorClass: 'subnav-item clickable' })
+    this.setState({ profileSelectorClass: 'subnav-item clickable highlighted' })
+    this.setState({ interestsSelectorClass: 'subnav-item clickable' })
   }
 
   // Left-most view = translateX(none);
   scrollToSkills() {
-    this.setState({ currentAboutSection:"skills" });
-    this.setState({ skillsClass:"aboutSkills-skills" });
-    this.setState({ profileClass:"aboutProfile-skills" });
-    this.setState({ interestsClass:"aboutInterests-skills" });
+    this.setState({ currentAboutSection: 'skills' })
+    this.setState({ skillsClass: 'aboutSkills-skills' })
+    this.setState({ profileClass: 'aboutProfile-skills' })
+    this.setState({ interestsClass: 'aboutInterests-skills' })
 
-    this.setState({ skillsSelectorClass:"aboutSelector-skills-current" });
-    this.setState({ profileSelectorClass:"aboutSelector-profile" });
-    this.setState({ interestsSelectorClass:"aboutSelector-interests" });
+    this.setState({ skillsSelectorClass: 'subnav-item clickable highlighted' })
+    this.setState({ profileSelectorClass: 'subnav-item clickable' })
+    this.setState({ interestsSelectorClass: 'subnav-item clickable' })
   }
 
   // Right-most view = translateX(-200%);
   scrollToInterests() {
-    this.setState({ currentAboutSection:"interests" });
-    this.setState({ skillsClass:"aboutSkills-interests" });
-    this.setState({ profileClass:"aboutProfile-interests" });
-    this.setState({ interestsClass:"aboutInterests-interests" });
+    this.setState({ currentAboutSection: 'interests' })
+    this.setState({ skillsClass: 'aboutSkills-interests' })
+    this.setState({ profileClass: 'aboutProfile-interests' })
+    this.setState({ interestsClass: 'aboutInterests-interests' })
 
-    this.setState({ skillsSelectorClass:"aboutSelector-skills" });
-    this.setState({ profileSelectorClass:"aboutSelector-profile" });
-    this.setState({ interestsSelectorClass:"aboutSelector-interests-current" });
+    this.setState({ skillsSelectorClass: 'subnav-item clickable' })
+    this.setState({ profileSelectorClass: 'subnav-item clickable' })
+    this.setState({
+      interestsSelectorClass: 'subnav-item clickable highlighted',
+    })
   }
 
-  showSkillBackgroundOnHover( skillname ) {
-    if ( skillname === "HTML5" ) {
-      this.setState({currentSkillText: "5 years mastery. It's a technology that I'm super comfortable with."});
-    } else if ( skillname === "CSS3" ) {
-      this.setState({currentSkillText: "5 years mastery. My favorite part of the stack with which I can make anything look pretty."});
-    } else if ( skillname === "Js" ) {
-      this.setState({currentSkillText: "5 years mastery. My apps would likely be pretty boring (even slow) without it... so thanks for that."});
-    } else if ( skillname === "Java" ) {
-      this.setState({currentSkillText: "4 years mastery. Not sure if the headaches were worth it yet, but there will surely be more. Ongoing love-hate relationship."});
-    } else if ( skillname === "iOS11" ) {
-      this.setState({currentSkillText: "3 months experience."});
-    } else if ( skillname === "Swift4" ) {
-      this.setState({currentSkillText: "3 months experience."});
+  translateContentOnClick(target) {
+    if (target !== this.state.currentAboutSection && target === 'profile') {
+      this.scrollToProfile()
+    } else if (
+      target !== this.state.currentAboutSection &&
+      target === 'skills'
+    ) {
+      this.scrollToSkills()
+    } else if (
+      target !== this.state.currentAboutSection &&
+      target === 'interests'
+    ) {
+      this.scrollToInterests()
     }
+    console.log(this.state.currentAboutSection)
   }
-  hideSkillBackgroundOnLeave() {
-    this.setState({currentSkillText: ""});
+
+  renderProfileSubSection() {
+    // TODO(skeswa): fill this in with (better) content.
+    return (
+      <div className="profile-text">
+        I was born in State College, PA to a South African family. My father and
+        oldest brother were the two people in my life that inspired me to
+        explore Computer Science. Even as a kid I had a passion for imaginative
+        creation: from legos and blanket-forts to enormous minecraft structures
+        and carpentry projects. Soon enough I built my very first web
+        application with just HTML/CSS. It wasn't much, but it was clear to me
+        then that I wanted to learn everything there was to web development and
+        software.
+      </div>
+    )
+  }
+
+  renderSkillsSubSection() {
+    const { skills, skillBoxContainerWidth, skillBoxesPerRow } = this.state
+
+    const skillBoxSize = this.getSkillBoxSize(
+      skillBoxContainerWidth,
+      skillBoxesPerRow
+    )
+    const shouldShowSkillboxes = !!skillBoxSize
+    const canCalculateProficiencyLegendWidth = skillBoxSize && skillBoxesPerRow
+    const proficiencyLegendStyle = canCalculateProficiencyLegendWidth
+      ? {
+          maxWidth:
+            // The size of all the skill boxes in one row (plus their margins)
+            // minus the trailing margin of the last one.
+            (skillBoxSize + skillBoxMargin) * skillBoxesPerRow - skillBoxMargin,
+        }
+      : null
+
+    return (
+      <div
+        ref={el => (this.skillBoxContainerRef = el)}
+        className="about-skills">
+        <div className="proficiency-legend" style={proficiencyLegendStyle}>
+          <div className="endpoint">ADVANCED</div>
+          <div className="gradient" />
+          <div className="endpoint">BEGINNER</div>
+        </div>
+        <div className="about-skillboxes">
+          {shouldShowSkillboxes
+            ? skills.map(skill => (
+                <SkillBox key={skill.name} skill={skill} size={skillBoxSize} />
+              ))
+            : null}
+        </div>
+      </div>
+    )
   }
 
   render() {
-    const { welcomeText } = this.props;
-    
-    return ( 
-      <div className="about" id="about-div">
-        <div className="aboutSectionTitle">
-          About
+    const { welcomeText } = this.props
+    const { subSections, visibleSubSectionIndex } = this.state
+
+    const subSectionsStyle = {
+      minWidth: `${subSections.length * 100}%`,
+      transform: `translateX(${-100 *
+        visibleSubSectionIndex /
+        subSections.length}%)`,
+    }
+
+    return (
+      <section className="about" id="about-div">
+        <div className="title">About</div>
+        <div className="subnav">
+          {subSections.map(({ label }, index) => (
+            <SubNavItem
+              key={label}
+              index={index}
+              isHighlighted={index === visibleSubSectionIndex}
+              label={label}
+              onClick={this.onSubNavItemClicked}
+            />
+          ))}
         </div>
-        
-        <div className="aboutContentSelector"> 
-          <div className={this.state.skillsSelectorClass} onClick={this.translateContentOnClick.bind(this, "skills")}>SKILLS</div> 
-          <div className={this.state.profileSelectorClass} onClick={this.translateContentOnClick.bind(this, "profile")}>PROFILE</div>
-          {/* <div className={this.state.interestsSelectorClass} onClick={this.translateContentOnClick.bind(this, "interests")}>INTERESTS</div> */}
+
+        <div className="content">
+          <div className="about-subsections" style={subSectionsStyle}>
+            {subSections.map(({ label, renderer }, index) => (
+              <SubSection
+                key={label}
+                isVisible={index === visibleSubSectionIndex}
+                renderer={renderer}
+              />
+            ))}
+          </div>
         </div>
-        <div className="aboutSectionContent-1">
-          <div className={ this.state.skillsClass }>
-            <div className="skillsContentContainer">
-              <div className="skillsProfficiencyLegend"> 
-                <div className="highProficiency">ADVANCED</div>
-                <div className="proficiencyGradientScale"></div>
-                <div className="lowProficiency">BEGINNER</div>
-              </div>
-              <div className="skillsContentLeft">
-                <div className="skillIcons" id="Advanced1" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "HTML5")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>
-                  <div className="skillname">HTML5</div>
-                  <div className="skillyears">5 years</div>
-                </div>
-                <div className="skillIcons" id="Advanced1" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "CSS3")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>
-                  <div className="skillname">CSS3</div>
-                  <div className="skillyears">5 years</div>
-                </div>
-                <div className="skillIcons" id="Advanced1" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "Js")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>
-                  <div className="skillname">XML</div>
-                  <div className="skillyears">5 years</div>
-                </div>
-                <div className="skillIcons" id="Advanced2" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "Java")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>
-                  <div className="skillname">Java</div>
-                  <div className="skillyears">4 years</div>
-                </div>
-                <div className="skillIcons" id="Advanced2" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "iOS11")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>
-                  <div className="skillname">iOS11</div>
-                  <div className="skillyears">1 year</div>
-                </div>
-                <div className="skillIcons" id="Advanced2" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "Swift4")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>
-                  <div className="skillname">Swift4</div>
-                  <div className="skillyears">1 year</div>
-                </div>
-              </div>
-              <div className="skillsContentLeft">
-                <div className="skillIcons" id="Advanced1" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "HTML5")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>
-                  <div className="skillname">JavaScript</div>
-                  <div className="skillyears">5 years</div>
-                </div>
-                <div className="skillIcons" id="Advanced1" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "CSS3")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>
-                  <div className="skillname">React</div>
-                  <div className="skillyears">3 years</div>
-                </div>
-                <div className="skillIcons" id="Advanced2" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "Js")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>
-                  <div className="skillname">Node.js</div>
-                  <div className="skillyears">2 years</div>
-                </div>
-                <div className="skillIcons" id="Advanced2" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "Java")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>
-                  <div className="skillname">Docker</div>
-                  <div className="skillyears">4 years</div>
-                </div>
-                <div className="skillIcons" id="Advanced2" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "iOS11")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>
-                  <div className="skillname">Android</div>
-                  <div className="skillyears">2 years</div>
-                </div>
-                <div className="skillIcons" id="Advanced3" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "Swift4")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>
-                  <div className="skillname">Go</div>
-                  <div className="skillyears">1 year</div>
-                </div>
-              </div>
-              <div className="skillsContentLeft">
-                <div className="skillIcons" id="Advanced1" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "HTML5")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>
-                  <div className="skillname">Sketch</div>
-                  <div className="skillyears">1 year</div>
-                </div>
-                <div className="skillIcons" id="Advanced2" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "CSS3")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>
-                  <div className="skillname">Webpack</div>
-                  <div className="skillyears">3 years</div>
-                </div>
-                <div className="skillIcons" id="Advanced2" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "Js")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>
-                  <div className="skillname">Illustrator</div>
-                  <div className="skillyears">1 year</div>
-                </div>
-                <div className="skillIcons" id="Advanced3" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "Java")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>
-                  <div className="skillname">Photoshop</div>
-                  <div className="skillyears">1 year</div>
-                </div>
-                <div className="skillIcons" id="Advanced3" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "iOS11")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>
-                  <div className="skillname">XML</div>
-                  <div className="skillyears">1 year</div>
-                </div>
-                <div className="skillIcons" id="Advanced3" onMouseOver={this.showSkillBackgroundOnHover.bind(this, "Swift4")} onMouseLeave={this.hideSkillBackgroundOnLeave.bind(this)}>
-                  <div className="skillname">Angular.js</div>
-                  <div className="skillyears">1 year</div>
-                </div>
-              </div>
-                {/*
-                <div className="skills-strengthsList">
-                  AREAS OF EXPERTISE
-                  <div className="skill-strength">UI/UX Design</div>
-                  <div className="skill-strength">Project Management</div>
-                  <div className="skill-strength">Frontend Development</div>
-                  <div className="skill-strength">Mobile Development</div>
-                </div>
-                */}
-                <div className="profile-articleRegion-column1">
-                </div>
-              <div className="skillsContentRight"></div>
-            </div>
-          </div>
-          <div className={ this.state.profileClass }>
-            <div className="profile-rightSection"> 
-              <div className="profile-articleRegion">
-                <div className="profile-articleRegion-column1">
-                  <span className="column-text" id="part-1">I was born in State College, PA to a South African family. My father and oldest brother were the two people in my life that inspired me to explore Computer Science. Even as a kid I had a passion for imaginative creation: from legos and blanket-forts to enormous minecraft structures and carpentry projects. Soon enough I built my very first web application with just HTML/CSS. It wasn't much, but it was clear to me then that I wanted to learn everything there was to web development and software.</span>
-                </div>
-                <div className="profile-articleRegion-column2">
-                  <div className="profile-image" id="pi-1" style={{ backgroundImage: `url(${theFarmImage})` }}/>
-                  <div className="profile-image" id="pi-2"/>
-                  <div className="profile-image" id="pi-3"/>
-                  <div className="profile-image" id="pi-4"/>
-                </div>
-                {/*
-                <div className="profile-articleRegion-column2">
-                  <span className="column-heading" id="heading2">Motivations</span>
-                  <span className="column-text" id="part-2">Throughout my tenure as a developer I've faced a number of challanges. Some challanges forcing me to question whether or not the developer profession was for me. Questions like these often get the best of growing developers. No matter how grave the contemplations were, however, the allure of building impactful and beautiful applications always brought me back every single time. In hindsight the biggest issues I've had, code or not, have always been the most fullfiling and satisfying to overcome - and right now there's nothing I'd rather be doing. It's what I live for.</span>
-                </div>
-                <div className="profile-articleRegion-column3">
-                  <span className="column-heading" id="heading3">Community</span>
-                  <span className="column-text" id="part-2">As a K-12 student I was isolated and tended to mix with kids who not only didn't value my friendship or wellbeing, but even encouraged my immaturity and poor working habits. However, looking back on those days strengthens my resolve to become a better person and developer. In the years following highschool I was introduced to the Computer Science community through attending hackathons. I was welcomed with open arms into an atmosphere that valued diversity and inspired creativity. In return, I've strived to become more involed in the industry.</span>
-                </div>
-                */}
-              </div>
-            </div>
-          </div>
-          {/*
-          <div className={ this.state.interestsClass }>
-            Interests
-          </div>
-          */}
-        </div>
-        <div className="scroll-to-portfolio" onClick={this.scrollToPortfolioOnClick.bind(this)}>
+      </section>
+    )
+  }
+}
+
+class SubNavItem extends Component {
+  constructor(props) {
+    super(props)
+
+    this.onClick = () => this.props.onClick(this.props.index)
+  }
+
+  render() {
+    const { isHighlighted, label } = this.props
+
+    return (
+      <div
+        className={
+          isHighlighted
+            ? 'subnav-item clickable highlighted'
+            : 'subnav-item clickable'
+        }
+        onClick={this.onClick}>
+        {label}
+      </div>
+    )
+  }
+}
+
+const SkillBox = ({ skill, size }) => {
+  const { experience, level, name } = skill
+
+  const skillBoxSizeInPixels = `${size}px`
+  const padding = Math.round(size / 6)
+  const fontSize = Math.round(size / 8)
+  const lineHeight = Math.round(1.5 * (size / 8))
+
+  let levelColor = '#222222'
+  switch (level) {
+    case 3:
+      levelColor = 'rgb(34, 102, 204)' /* Blue */
+      break
+    case 2:
+      levelColor = 'rgb(58, 31, 180)' /* Purple */
+      break
+    case 1:
+      levelColor = '#6d23b3' /* Magenta */
+      break
+    default:
+      return '#222222' /* Gray */
+  }
+
+  const skillBoxStyle = {
+    backgroundColor: levelColor,
+    maxHeight: skillBoxSizeInPixels,
+    maxWidth: skillBoxSizeInPixels,
+    minHeight: skillBoxSizeInPixels,
+    minWidth: skillBoxSizeInPixels,
+    padding: `${padding}px`,
+  }
+  const skillBoxTextStyle = {
+    fontSize: `${fontSize}px`,
+    lineHeight: `${lineHeight}px`,
+  }
+
+  return (
+    <div key={name} className="skillbox" style={skillBoxStyle}>
+      <div style={skillBoxTextStyle}>{name}</div>
+      <div className="skillbox-experience" style={skillBoxTextStyle}>
+        {experience}
+      </div>
+    </div>
+  )
+}
+
+class SubSection extends Component {
+  scrollToPortfolioOnClick() {
+    scrollToComponent(document.getElementById('portfolio-div'), {
+      offset: 0,
+      align: 'top',
+      duration: 750,
+    })
+  }
+
+  render() {
+    const { isVisible, renderer } = this.props
+
+    return (
+      <div
+        className={isVisible ? 'about-subsection visible' : 'about-subsection'}>
+        {renderer()}
+
+        <div
+          className="scroll-to-portfolio clickable"
+          onClick={this.scrollToPortfolioOnClick.bind(this)}>
           <div>SEE MY WORK</div>
         </div>
       </div>
     )
-
   }
 }
 
-export default About;
+export default About
