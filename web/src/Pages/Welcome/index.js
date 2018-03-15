@@ -1,35 +1,35 @@
 // Base imports
-import React, { Component } from 'react'
-import scrollToComponent from 'react-scroll-to-component'
+import React, { Component } from "react";
+import scrollToComponent from "react-scroll-to-component";
 
 // CSS imports
-import './index.css'
+import "./index.css";
 
 // Foreign component imports
 
 // Media imports
-import welcomeBackground from '../../Media/anathi_selfie.png'
-import anathiResume from '../../Media/anathi_resume.pdf'
+import welcomeBackground from "../../Media/anathi_selfie.png";
+import anathiResume from "../../Media/anathi_resume.pdf";
 
 class Welcome extends Component {
   // In this format a constructor is required. Make sure you understand why...
   constructor() {
-    super()
+    super();
     this.state = {
-      someState: 'its just an example, dude',
-    }
+      someState: "its just an example, dude"
+    };
   }
 
   scrollToAboutOnClick(elementId) {
     scrollToComponent(document.getElementById(elementId), {
       offset: 0,
-      align: 'top',
-      duration: 750,
-    })
+      align: "top",
+      duration: 750
+    });
   }
 
   render() {
-    const { welcomeText, welcomeTextSecondLine, welcomeParagraph } = this.props
+    const { welcomeText, welcomeTextSecondLine, welcomeParagraph } = this.props;
 
     return (
       <section className="welcome">
@@ -42,27 +42,30 @@ class Welcome extends Component {
           <div className="welcome-links">
             <div
               className="welcome-link clickable"
-              onClick={this.scrollToAboutOnClick.bind(this, 'about-div')}>
+              onClick={this.scrollToAboutOnClick.bind(this, "about-div")}
+            >
               ABOUT ME
             </div>
-            <div
+            <a
               className="welcome-link clickable"
               href={anathiResume}
-              download="anathi_resume.pdf">
+              target="_blank"
+            >
               RESUMÉ
-            </div>
+            </a>
           </div>
         </div>
         <div className="welcome-right">
           <div
             className="welcome-selfie"
-            style={{ backgroundImage: `url(${welcomeBackground})` }}>
+            style={{ backgroundImage: `url(${welcomeBackground})` }}
+          >
             <div className="welcome-fade-overlay" />
           </div>
         </div>
       </section>
-    )
+    );
   }
 }
 
-export default Welcome
+export default Welcome;
